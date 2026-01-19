@@ -1,0 +1,49 @@
+---
+alwaysApply: true
+---
+
+# AI BOILERPLATE RULES (MANDATORY)
+
+## Command Flow Integration
+
+These rules are enforced during `RULES:` and `GENERATE:` commands.
+All code must comply with these constraints.
+
+---
+
+You are NOT the architect.
+You are an assistant implementing within a fixed system.
+
+## Tech Stack (IMMUTABLE)
+- FastAPI (async only)
+- SQLAlchemy Async ORM
+- Alembic for migrations
+- Pydantic for schemas
+- Pytest for tests
+- PostgreSQL / MySQL (no SQLite unless explicitly stated)
+
+## Layered Architecture (STRICT)
+- models/      → DB schema only
+- services/    → Business logic only
+- views/       → Routing only
+- schemas/     → Request/response validation
+- core/        → Security, config, utils
+
+## Forbidden
+- ❌ DB queries in views
+- ❌ Business logic in routers
+- ❌ Raw SQL (unless explicitly approved)
+- ❌ Blocking calls in async code
+- ❌ Global state mutations
+
+## Required
+- Type hints everywhere
+- PEP8 compliance
+- Async/await correctness
+- Explicit error handling
+- Centralized logging
+- Config via environment variables
+
+## Migration Rule
+- Any model change REQUIRES Alembic migration
+- Do not assume auto-migration

@@ -1,0 +1,1035 @@
+{
+  "result": {
+    "ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "ID"
+    },
+    "CATALOG_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Catalog"
+    },
+    "PRICE": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Price"
+    },
+    "CURRENCY_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Currency"
+    },
+    "NAME": {
+      "type": "string",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Name"
+    },
+    "CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "CODE"
+    },
+    "DESCRIPTION": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Description"
+    },
+    "DESCRIPTION_TYPE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Description type"
+    },
+    "ACTIVE": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Active"
+    },
+    "SECTION_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Section"
+    },
+    "SORT": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Sort"
+    },
+    "VAT_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Tax rate"
+    },
+    "VAT_INCLUDED": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Tax included"
+    },
+    "MEASURE": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Unit of measurement"
+    },
+    "XML_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "External ID"
+    },
+    "PREVIEW_PICTURE": {
+      "type": "product_file",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Preview image"
+    },
+    "DETAIL_PICTURE": {
+      "type": "product_file",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Full image"
+    },
+    "DATE_CREATE": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created on"
+    },
+    "TIMESTAMP_X": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": true,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified on"
+    },
+    "MODIFIED_BY": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified by"
+    },
+    "CREATED_BY": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created by"
+    },
+    "PROPERTY_98": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Barcode"
+    },
+    "PROPERTY_194": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Carton Barcode"
+    },
+    "PROPERTY_126": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "L",
+      "userType": "",
+      "title": "Bestseller",
+      "values": {
+        "240": {
+          "ID": "240",
+          "VALUE": "yes"
+        }
+      }
+    },
+    "PROPERTY_128": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "L",
+      "userType": "",
+      "title": "Special Offer",
+      "values": {
+        "242": {
+          "ID": "242",
+          "VALUE": "yes"
+        }
+      }
+    },
+    "PROPERTY_248": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Product: "
+    },
+    "PROPERTY_130": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Art number"
+    },
+    "PROPERTY_92": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Factory Logo"
+    },
+    "PROPERTY_102": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Specification"
+    },
+    "PROPERTY_104": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Product Artwork"
+    },
+    "PROPERTY_108": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "ECrm",
+      "title": "Factory"
+    },
+    "PROPERTY_110": {
+      "type": "product_property",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "L",
+      "userType": "",
+      "title": "Country of Origin",
+      "values": {
+        "392": {
+          "ID": "392",
+          "VALUE": "Argentina"
+        },
+        "178": {
+          "ID": "178",
+          "VALUE": "Austria"
+        },
+        "344": {
+          "ID": "344",
+          "VALUE": "Belarus"
+        },
+        "378": {
+          "ID": "378",
+          "VALUE": "Belgium"
+        },
+        "180": {
+          "ID": "180",
+          "VALUE": "Brazil"
+        },
+        "182": {
+          "ID": "182",
+          "VALUE": "Bulgaria"
+        },
+        "440": {
+          "ID": "440",
+          "VALUE": "Chile"
+        },
+        "184": {
+          "ID": "184",
+          "VALUE": "Czech Republic"
+        },
+        "312": {
+          "ID": "312",
+          "VALUE": "Denmark"
+        },
+        "186": {
+          "ID": "186",
+          "VALUE": "Estonia"
+        },
+        "188": {
+          "ID": "188",
+          "VALUE": "France"
+        },
+        "190": {
+          "ID": "190",
+          "VALUE": "Germany"
+        },
+        "192": {
+          "ID": "192",
+          "VALUE": "Hungary"
+        },
+        "326": {
+          "ID": "326",
+          "VALUE": "India"
+        },
+        "342": {
+          "ID": "342",
+          "VALUE": "Ireland"
+        },
+        "194": {
+          "ID": "194",
+          "VALUE": "Italy"
+        },
+        "376": {
+          "ID": "376",
+          "VALUE": "Jordan"
+        },
+        "196": {
+          "ID": "196",
+          "VALUE": "Lithuania"
+        },
+        "198": {
+          "ID": "198",
+          "VALUE": "Malaysia"
+        },
+        "346": {
+          "ID": "346",
+          "VALUE": "Netherlands"
+        },
+        "348": {
+          "ID": "348",
+          "VALUE": "Oman"
+        },
+        "200": {
+          "ID": "200",
+          "VALUE": "Poland"
+        },
+        "202": {
+          "ID": "202",
+          "VALUE": "Portugal"
+        },
+        "204": {
+          "ID": "204",
+          "VALUE": "Serbia"
+        },
+        "374": {
+          "ID": "374",
+          "VALUE": "South Korea"
+        },
+        "328": {
+          "ID": "328",
+          "VALUE": "Spain"
+        },
+        "356": {
+          "ID": "356",
+          "VALUE": "Sri Lanka"
+        },
+        "206": {
+          "ID": "206",
+          "VALUE": "Thailand"
+        },
+        "414": {
+          "ID": "414",
+          "VALUE": "Tunisia"
+        },
+        "380": {
+          "ID": "380",
+          "VALUE": "Turkey"
+        },
+        "338": {
+          "ID": "338",
+          "VALUE": "UAE"
+        },
+        "208": {
+          "ID": "208",
+          "VALUE": "Ukraine"
+        }
+      }
+    },
+    "PROPERTY_112": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "HS Code"
+    },
+    "PROPERTY_114": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "L",
+      "userType": "",
+      "title": "Package Material",
+      "values": {
+        "210": {
+          "ID": "210",
+          "VALUE": "Bag in Box"
+        },
+        "212": {
+          "ID": "212",
+          "VALUE": "Block"
+        },
+        "214": {
+          "ID": "214",
+          "VALUE": "Easy Open"
+        },
+        "216": {
+          "ID": "216",
+          "VALUE": "Glass Jar"
+        },
+        "324": {
+          "ID": "324",
+          "VALUE": "Bag"
+        },
+        "218": {
+          "ID": "218",
+          "VALUE": "Hard Open"
+        },
+        "220": {
+          "ID": "220",
+          "VALUE": "Normal Lid"
+        },
+        "222": {
+          "ID": "222",
+          "VALUE": "PET Bottle"
+        },
+        "224": {
+          "ID": "224",
+          "VALUE": "Pot"
+        },
+        "226": {
+          "ID": "226",
+          "VALUE": "Prisma"
+        },
+        "228": {
+          "ID": "228",
+          "VALUE": "Round Box"
+        },
+        "230": {
+          "ID": "230",
+          "VALUE": "Sachet"
+        },
+        "232": {
+          "ID": "232",
+          "VALUE": "SIG"
+        },
+        "234": {
+          "ID": "234",
+          "VALUE": "Tetra Pak"
+        },
+        "236": {
+          "ID": "236",
+          "VALUE": "Tin"
+        },
+        "314": {
+          "ID": "314",
+          "VALUE": "Litho"
+        },
+        "316": {
+          "ID": "316",
+          "VALUE": "Flexo"
+        },
+        "318": {
+          "ID": "318",
+          "VALUE": "Sack"
+        },
+        "354": {
+          "ID": "354",
+          "VALUE": "Carton"
+        },
+        "362": {
+          "ID": "362",
+          "VALUE": "Plastic Bottle"
+        },
+        "386": {
+          "ID": "386",
+          "VALUE": "Pouch"
+        },
+        "398": {
+          "ID": "398",
+          "VALUE": "Plastic Cup"
+        }
+      }
+    },
+    "PROPERTY_118": {
+      "type": "product_property",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Net Content"
+    },
+    "PROPERTY_138": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Background image"
+    },
+    "PROPERTY_160": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Shelf Life"
+    },
+    "PROPERTY_162": {
+      "type": "product_property",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Units per Carton (e.g., 12 x 1L)"
+    },
+    "PROPERTY_166": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Loading Quantities"
+    },
+    "PROPERTY_174": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "L",
+      "userType": "",
+      "title": "Product Category",
+      "values": {
+        "308": {
+          "ID": "308",
+          "VALUE": "Adult Formula / Instant Milk Powder"
+        },
+        "306": {
+          "ID": "306",
+          "VALUE": "Baby Biscuits"
+        },
+        "304": {
+          "ID": "304",
+          "VALUE": "Baby Cereals"
+        },
+        "352": {
+          "ID": "352",
+          "VALUE": "Butter"
+        },
+        "286": {
+          "ID": "286",
+          "VALUE": "Cheese"
+        },
+        "360": {
+          "ID": "360",
+          "VALUE": "Coconut Milk"
+        },
+        "288": {
+          "ID": "288",
+          "VALUE": "Evaporated Milk"
+        },
+        "410": {
+          "ID": "410",
+          "VALUE": "Ice Cream Powder"
+        },
+        "302": {
+          "ID": "302",
+          "VALUE": "Infant Formula"
+        },
+        "340": {
+          "ID": "340",
+          "VALUE": "Milk Powder"
+        },
+        "292": {
+          "ID": "292",
+          "VALUE": "Sweetened Condensed Milk"
+        },
+        "294": {
+          "ID": "294",
+          "VALUE": "Tuna"
+        },
+        "296": {
+          "ID": "296",
+          "VALUE": "UHT Milk"
+        },
+        "290": {
+          "ID": "290",
+          "VALUE": "Vegetable Oil"
+        },
+        "310": {
+          "ID": "310",
+          "VALUE": "Wheat Flour"
+        },
+        "298": {
+          "ID": "298",
+          "VALUE": "Whipping & Cooking Cream"
+        },
+        "300": {
+          "ID": "300",
+          "VALUE": "Yogurt"
+        }
+      }
+    },
+    "PROPERTY_184": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Product Short Name"
+    },
+    "PROPERTY_186": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "HTML",
+      "title": "Link to Artwork files"
+    },
+    "PROPERTY_190": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "SKU package (number of units per package, e.g., \"10 slices\", \"4 cups\")"
+    },
+    "PROPERTY_192": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Cartons per Pallet"
+    },
+    "PROPERTY_196": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Carton Artwork"
+    },
+    "PROPERTY_200": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Photo of primary packing"
+    },
+    "PROPERTY_202": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Photo of secondary packing"
+    },
+    "PROPERTY_204": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Technical data sheet"
+    },
+    "PROPERTY_208": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Primary packing artwork"
+    },
+    "PROPERTY_210": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Secondary packing Artwork"
+    },
+    "PROPERTY_216": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Transport / delivery conditions - temperature "
+    },
+    "PROPERTY_218": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Storage conditions – temperature"
+    },
+    "PROPERTY_220": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Carton dimensions"
+    },
+    "PROPERTY_222": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Pallet dimensions"
+    },
+    "PROPERTY_228": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Lead time to print packing material"
+    },
+    "PROPERTY_230": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Lead time to reorder packing material"
+    },
+    "PROPERTY_232": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Lead time for production"
+    },
+    "PROPERTY_234": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Art works approved by FDA of country of destination "
+    },
+    "PROPERTY_242": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Loading address "
+    },
+    "PROPERTY_244": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Unit pack size "
+    },
+    "PROPERTY_250": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Packing:"
+    },
+    "PROPERTY_252": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Carton:"
+    },
+    "PROPERTY_254": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Term of delivery:"
+    },
+    "PROPERTY_256": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "Money",
+      "title": "Price:"
+    },
+    "PROPERTY_258": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Quantity:"
+    },
+    "PROPERTY_264": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "S",
+      "userType": "",
+      "title": "Origin:"
+    },
+    "PROPERTY_266": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Product Keylines"
+    },
+    "PROPERTY_268": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "propertyType": "F",
+      "userType": "",
+      "title": "Documents from factory – a.\tCOO       b. HC\t    c.\tFSC"
+    },
+    "PROPERTY_272": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "N",
+      "userType": "",
+      "title": "MOQ - Packaging Matereal"
+    },
+    "PROPERTY_274": {
+      "type": "product_property",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "propertyType": "N",
+      "userType": "",
+      "title": "MOQ - Production"
+    }
+  }
+}
+

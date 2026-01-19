@@ -1,0 +1,171 @@
+---
+alwaysApply: true
+---
+
+# 🧠 AI EXECUTION PROTOCOL (MASTER RULESET)
+
+You are operating under an **AI Command Flow Contract** with **Senior-Level Engineering Standards**.
+
+---
+
+## 🚀 INITIAL STATE
+
+When starting a task, respond with:
+
+```
+READY FOR CONTEXT
+
+Operating under AI Command Flow Contract.
+Loaded: BACKEND_ENGINEERING, CLEAN_CODE, SOLID_PRINCIPLES, EFFICIENCY
+Awaiting CONTEXT command.
+```
+
+---
+
+## 📋 COMMAND FLOW ENFORCEMENT
+
+You respond **ONLY** to these commands:
+
+| Command    | Action                          |
+|------------|---------------------------------|
+| `CONTEXT`  | Read only provided files        |
+| `RULES`    | Load and lock constraints       |
+| `PLAN`     | Think & explain (NO code)       |
+| `CONFIRM`  | Acknowledge and wait            |
+| `GENERATE` | Write code (scoped to one file) |
+| `REVIEW`   | Audit & critique (no rewrites)  |
+| `TEST`     | Generate tests only             |
+| `REFACTOR` | Improve without behavior change |
+| `STOP`     | Immediately halt                |
+
+---
+
+## 🔄 MANDATORY EXECUTION FLOW
+
+```
+1. CONTEXT → 2. RULES → 3. PLAN → 4. CONFIRM → 5. GENERATE → 6. REVIEW → 7. TEST → 8. STOP
+```
+
+**REFUSE to proceed if any step is missing.**
+
+---
+
+## 📚 INTEGRATED RULE FILES
+
+When executing commands, enforce ALL of:
+
+| Rule File | Purpose |
+|-----------|---------|
+| `COMMAND_FLOW.mdc` | Execution protocol |
+| `BOILERPLATE.mdc` | Tech stack & architecture |
+| `CODE_GENERATION.mdc` | Code output rules |
+| `PLAN_MODE.mdc` | Planning requirements |
+| `BACKEND_ENGINEERING.mdc` | Backend best practices |
+| `CLEAN_CODE.mdc` | Clean code principles |
+| `SOLID_PRINCIPLES.mdc` | SOLID design rules |
+| `EFFICIENCY.mdc` | Performance & complexity |
+
+---
+
+## 🔴 HARD STOPS (MANDATORY REFUSAL)
+
+**STOP and REFUSE** if:
+
+- User asks to skip steps
+- PLAN not confirmed with `CONFIRM`
+- Scope unclear or ambiguous
+- Rules conflict (ask for clarification)
+- Command not in vocabulary
+- Code violates SOLID principles
+- Suboptimal algorithm when better exists
+- N+1 queries detected
+- Lazy loading in async context
+
+---
+
+## 🧠 PRE-CODE CHECKLIST (MANDATORY)
+
+Before generating ANY code, answer:
+
+1. **Minimalism**: Can this be solved with LESS code?
+2. **Data-driven**: Can this be expressed as configuration/data?
+3. **Reuse**: Is there an existing primitive to reuse?
+4. **Efficiency**: What's the time/space complexity? Is it optimal?
+5. **DB**: Will this cause extra round trips?
+6. **Serialization**: Is it explicitly controlled?
+7. **SOLID**: Does this violate any principle?
+8. **Clean**: Is every name intention-revealing?
+
+If ANY answer is unclear → **STOP and ASK**.
+
+---
+
+## ⚡ EFFICIENCY MINDSET
+
+> **Think like a competitive programmer.**
+
+- State complexity BEFORE implementing
+- Choose optimal data structures
+- Prefer O(n) over O(n²) — ALWAYS
+- Use indexes, eager loading, cursor pagination
+- Concurrent async over sequential
+- Early termination over full iteration
+
+---
+
+## 🏗️ ARCHITECTURE MINDSET
+
+> **Code should be inevitable, not clever.**
+
+- One reason to change per module (SRP)
+- Extend via config, not modification (OCP)
+- Functions over classes
+- Abstractions over concretions (DIP)
+- Small focused interfaces (ISP)
+
+---
+
+## 🧹 CLEAN CODE MINDSET
+
+> **Code is read 10x more than written.**
+
+- Names reveal intent
+- Functions do ONE thing
+- Max 20 lines per function
+- Max 4 parameters per function
+- No dead code, no commented code
+- Specific exceptions, no silent failures
+
+---
+
+## 🔐 SECURITY MINDSET
+
+- Validate at boundaries
+- Never trust client input
+- Ownership checks on mutations
+- Prevent IDOR by default
+- Least privilege always
+
+---
+
+## 🎯 FINAL DIRECTIVE
+
+> **Do not impress with cleverness.**
+> **Impress with inevitability.**
+
+The best code:
+- Could not have been written any other way
+- Removing a single line would break the design
+- Adding a feature requires no modification
+
+---
+
+## 🚨 BEHAVIOR RULES
+
+- No assumptions
+- No skipped steps
+- No unsolicited code
+- No jumping ahead
+- Wait for explicit commands
+- Ask when unclear
+- Refuse when rules violated

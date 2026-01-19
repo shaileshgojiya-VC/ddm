@@ -1,0 +1,342 @@
+---
+alwaysApply: true
+---
+
+# 🧠 AI COMMAND FLOW CONTRACT (MANDATORY)
+
+## Purpose
+
+Define **exact commands** the user gives and **exact actions** the AI must perform — no assumptions, no skipping, no freelancing.
+
+---
+
+## 1️⃣ Global Execution Rule (NON-NEGOTIABLE)
+
+```
+AI MUST NOT jump steps.
+AI MUST NOT write code unless explicitly commanded.
+AI MUST STOP after each phase and wait for confirmation.
+```
+
+---
+
+## 2️⃣ Command Vocabulary (THE ONLY COMMANDS AI RESPONDS TO)
+
+The AI must react **only** to these commands.
+
+| Command    | AI Action                       |
+| ---------- | ------------------------------- |
+| `CONTEXT`  | Read only the provided files    |
+| `RULES`    | Load and lock constraints       |
+| `PLAN`     | Think & explain (no code)       |
+| `CONFIRM`  | Acknowledge and wait            |
+| `GENERATE` | Write code (scoped)             |
+| `REVIEW`   | Audit & critique                |
+| `TEST`     | Generate tests                  |
+| `REFACTOR` | Improve without behavior change |
+| `STOP`     | Immediately halt                |
+
+---
+
+## 3️⃣ Mandatory Execution Flow (CAN NOT CHANGE)
+
+```
+1. CONTEXT
+2. RULES
+3. PLAN
+4. CONFIRM
+5. GENERATE
+6. REVIEW
+7. TEST
+8. STOP
+```
+
+If ANY step is missing → AI must refuse to proceed.
+
+---
+
+## 4️⃣ Command-by-Command Behavior Definition
+
+---
+
+### 🔹 1. CONTEXT
+
+**User Command**
+
+```
+CONTEXT:
+- apps/v1/api/user/models.py
+- apps/v1/api/user/services.py
+- apps/v1/api/user/views.py
+```
+
+**AI Behavior**
+
+* Read ONLY these files
+* Ignore entire repo
+* Do NOT infer missing files
+* Do NOT modify files yet
+
+🚫 Forbidden:
+
+* "Assuming typical FastAPI structure"
+* "Probably there is a schema…"
+* Reading files not explicitly listed
+* Making assumptions about missing files
+
+---
+
+### 🔹 2. RULES
+
+**User Command**
+
+```
+RULES:
+- Follow RULES/BOILERPLATE.md
+- Follow RULES/CODE_GENERATION.md
+- Async FastAPI only
+- No DB logic in views
+```
+
+**AI Behavior**
+
+* Lock constraints
+* Treat rules as compile-time errors
+* If rule conflict exists → STOP and ask
+* Reference specific rule files when provided
+
+---
+
+### 🔹 3. PLAN (MANDATORY THINKING PHASE)
+
+**User Command**
+
+```
+PLAN:
+Implement soft delete for users
+```
+
+**AI Output (NO CODE ALLOWED)**
+
+```
+PLAN MODE
+
+Goal:
+Assumptions:
+Architecture changes:
+Trade-offs:
+Edge cases:
+Security implications:
+Open questions:
+```
+
+🚫 Forbidden:
+
+* Writing code
+* Suggesting final APIs
+* Making silent assumptions
+* Skipping any section
+
+---
+
+### 🔹 4. CONFIRM
+
+**User Command**
+
+```
+CONFIRM
+```
+
+**AI Behavior**
+
+* Acknowledge approved plan
+* Do NOTHING else
+* Wait for next command
+* Do NOT proceed to GENERATE automatically
+
+---
+
+### 🔹 5. GENERATE (CODE PHASE)
+
+**User Command**
+
+```
+GENERATE:
+Layer: models
+File: apps/v1/api/user/models.py
+```
+
+**AI Behavior**
+
+* Modify ONLY that file
+* Output full file content
+* No other layers
+* No tests
+* No refactors
+* Follow CODE_GENERATION rules strictly
+
+🚫 Forbidden:
+
+* "Also updated services…"
+* "Minor cleanup in views…"
+* Partial implementations
+* Ellipsis placeholders
+* Pseudo-code
+
+---
+
+### 🔹 6. REVIEW (SENIOR MODE)
+
+**User Command**
+
+```
+REVIEW:
+Focus:
+- OWASP
+- Async safety
+- Performance
+```
+
+**AI Behavior**
+
+* Do NOT rewrite code
+* Only critique
+* Point out risks
+* Suggest fixes (no implementation)
+* Reference specific line numbers
+* Check against all rules
+
+---
+
+### 🔹 7. TEST
+
+**User Command**
+
+```
+TEST:
+Generate pytest tests
+```
+
+**AI Behavior**
+
+* Write tests only
+* Cover:
+  * success cases
+  * failure cases
+  * edge cases
+* No production code changes
+* Follow pytest best practices
+
+---
+
+### 🔹 8. REFACTOR
+
+**User Command**
+
+```
+REFACTOR:
+File: apps/v1/api/user/services.py
+Reason: readability
+```
+
+**AI Behavior**
+
+* Do NOT change behavior
+* Improve code quality only
+* Explain what changed
+* Maintain all tests passing
+
+---
+
+### 🔹 9. STOP
+
+**User Command**
+
+```
+STOP
+```
+
+**AI Behavior**
+
+* End execution immediately
+* No suggestions
+* No "next steps"
+* No improvements
+* Silent acknowledgment
+
+---
+
+## 5️⃣ Hard Safety Rules (AI MUST REFUSE)
+
+AI must STOP if:
+
+* PLAN not approved
+* Rules missing
+* Scope unclear
+* Auth not defined
+* User asks "just generate everything"
+* Command not in vocabulary
+* Execution flow violated
+
+Refusal format:
+
+```
+REFUSAL:
+Missing step: PLAN CONFIRMATION
+Reason: Cannot proceed without explicit CONFIRM command
+```
+
+---
+
+## 6️⃣ Integration with Existing Rules
+
+When executing commands:
+
+* **CONTEXT** → Read files only, no assumptions
+* **RULES** → Load ALL rule files:
+  - BOILERPLATE.mdc (tech stack)
+  - CODE_GENERATION.mdc (output rules)
+  - PLAN_MODE.mdc (planning format)
+  - BACKEND_ENGINEERING.mdc (backend patterns)
+  - CLEAN_CODE.mdc (clean code principles)
+  - SOLID_PRINCIPLES.mdc (SOLID design)
+  - EFFICIENCY.mdc (performance rules)
+* **PLAN** → Follow PLAN_MODE.mdc format exactly
+* **GENERATE** → Follow CODE_GENERATION.mdc order (Models → Schemas → Services → Views → Tests)
+* **REVIEW** → Check against ALL constraints (SOLID, Clean Code, Efficiency)
+
+---
+
+## 7️⃣ Initial State
+
+On first interaction, AI must respond:
+
+```
+READY FOR CONTEXT
+
+Operating under AI Command Flow Contract.
+Awaiting CONTEXT command.
+```
+
+---
+
+## 8️⃣ Error Recovery
+
+If user provides invalid command:
+
+* Acknowledge error
+* List valid commands
+* Wait for correction
+* Do NOT proceed with best guess
+
+---
+
+## 9️⃣ Scope Enforcement
+
+Each GENERATE command must specify:
+
+* Exact file path
+* Exact layer (models/schemas/services/views)
+* No cross-layer changes in single command
+
+Multiple files require multiple GENERATE commands.

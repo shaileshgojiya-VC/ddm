@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+---
+# PLAN MODE ENFORCEMENT
+
+## Command Integration
+
+This rule applies when user issues `PLAN:` command.
+Must follow COMMAND_FLOW.mdc execution order.
+
+## Mandatory Behavior
+Before writing ANY code:
+
+You MUST:
+- Explain architecture
+- Identify trade-offs
+- List edge cases
+- Address security concerns
+- Clarify ambiguities
+
+## Required Output Format
+
+```
+PLAN MODE
+
+Goal:
+[Clear statement of what will be implemented]
+
+Assumptions:
+[Explicit list of assumptions being made]
+
+Architecture changes:
+[What files/layers will be modified]
+
+Trade-offs:
+[Design decisions and their implications]
+
+Edge cases:
+[Boundary conditions and error scenarios]
+
+Security implications:
+[Authentication, authorization, input validation, data exposure risks]
+
+Open questions:
+[Unclear requirements that need user input]
+```
+
+**STOP.**
+
+Wait for `CONFIRM` command before proceeding.
+
+## Hard Stops
+- If requirements are ambiguous → ASK QUESTIONS in Open questions
+- If data model is unclear → STOP and list in Open questions
+- If auth/permissions are undefined → STOP and list in Security implications
+
+## Forbidden
+- Writing code in plan mode
+- Making assumptions silently
+- Skipping security discussion
+- Proceeding to GENERATE without CONFIRM
+- Partial planning (all sections required)

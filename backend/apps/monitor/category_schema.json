@@ -1,0 +1,59 @@
+{
+  "result": {
+    "ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "ID"
+    },
+    "CATALOG_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": true,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Catalog"
+    },
+    "SECTION_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Section"
+    },
+    "NAME": {
+      "type": "string",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Name"
+    },
+    "XML_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "External ID"
+    },
+    "CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Mnemonic code"
+    }
+  }
+}
+

@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "DanaDairyBackend"
+version = "0.1.0"
+description = "Dana Dairy Backend API"
+authors = ["Dana Dairy <info@dana-dairy.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0"}
+sqlalchemy = "^2.0.23"
+alembic = "^1.12.1"
+pydantic = "^2.5.0"
+pydantic-settings = "^2.1.0"
+python-dotenv = "^1.0.0"
+redis = "^5.0.1"
+boto3 = "^1.29.7"
+aiosmtplib = "^3.0.1"
+python-multipart = "^0.0.6"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+weasyprint = "^60.1"
+pymysql = "^1.1.2"
+aiomysql = "^0.3.2"
+email-validator = "^2.3.0"
+marshmallow = "4.1.0"
+fastapi-pagination = "^0.15.2"
+httpx = "^0.28.1"
+requests = "^2.32.5"
+azure-storage-blob = "^12.27.1"
+aiohttp = "^3.13.3"
+python-socketio = "^5.10.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-asyncio = "^0.21.1"
+black = "^23.11.0"
+flake8 = "^6.1.0"
+mypy = "^1.7.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+

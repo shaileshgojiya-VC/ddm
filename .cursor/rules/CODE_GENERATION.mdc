@@ -1,0 +1,72 @@
+---
+alwaysApply: true
+---
+# AI CODE GENERATION RULES
+
+## Command Integration
+
+This rule applies when user issues `GENERATE:` command.
+Must follow COMMAND_FLOW.mdc execution order.
+Requires PLAN → CONFIRM before execution.
+
+## Absolute Order of Work
+1. Models
+2. Schemas
+3. Services
+4. Views
+5. Tests
+
+Never skip layers.
+Never merge layers.
+Each layer requires separate `GENERATE:` command.
+
+## Code Output Rules
+- One file at a time per GENERATE command
+- Show full file content (no truncation)
+- No ellipsis ("...") placeholders
+- No pseudo-code
+- No partial implementations
+- No cross-layer changes in single command
+
+## GENERATE Command Format
+
+User must specify:
+```
+GENERATE:
+Layer: [models|schemas|services|views|tests]
+File: [exact path]
+```
+
+AI must:
+- Modify ONLY the specified file
+- Output complete file content
+- Follow layer order if multiple files needed
+- Wait for next GENERATE command for next file
+
+## Behavior Rules
+- Do NOT assume business logic
+- Ask counter-questions if unclear (but only during PLAN phase)
+- Prefer explicit over clever
+- Optimize for readability over brevity
+- Follow BOILERPLATE.mdc tech stack constraints
+
+## Security Rules (NON-NEGOTIABLE)
+- Validate ownership on all mutations
+- Never trust client input
+- Use dependency-based auth
+- Enforce least privilege
+- Prevent IDOR by default
+
+## Performance Rules
+- No N+1 queries
+- Use pagination for list endpoints
+- Index foreign keys
+- Avoid unbounded queries
+
+## Refactoring Rules
+- Do NOT change behavior
+- Refactor only for:
+  - readability
+  - performance
+  - security
+- Requires explicit `REFACTOR:` command

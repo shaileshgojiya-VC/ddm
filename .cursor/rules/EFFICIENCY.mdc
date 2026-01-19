@@ -1,0 +1,324 @@
+---
+alwaysApply: true
+---
+
+# ⚡ COMPETITIVE EFFICIENCY RULES (MANDATORY)
+
+---
+
+## 🎯 PRIME DIRECTIVE
+
+> Find the MOST EFFICIENT solution, not just A solution.
+> Think like a competitive programmer: Time complexity MATTERS.
+
+---
+
+## 1️⃣ COMPLEXITY ANALYSIS (MANDATORY)
+
+Before writing ANY algorithm, you MUST:
+1. State the time complexity: O(?)
+2. State the space complexity: O(?)
+3. Justify why this is optimal
+
+❌ Forbidden:
+```python
+# Just writing code without analysis
+def find_duplicates(items):
+    duplicates = []
+    for i in items:
+        if items.count(i) > 1 and i not in duplicates:
+            duplicates.append(i)
+    return duplicates
+```
+
+✅ Required:
+```python
+# Time: O(n), Space: O(n)
+# Optimal because we need to see each element at least once
+def find_duplicates(items: list[T]) -> list[T]:
+    seen: set[T] = set()
+    duplicates: set[T] = set()
+    for item in items:
+        if item in seen:
+            duplicates.add(item)
+        seen.add(item)
+    return list(duplicates)
+```
+
+---
+
+## 2️⃣ DATA STRUCTURE SELECTION
+
+### Choose the RIGHT data structure:
+
+| Operation | Best Structure | Time |
+|-----------|---------------|------|
+| Lookup by key | `dict` | O(1) |
+| Membership test | `set` | O(1) |
+| Ordered unique | `dict` (3.7+) | O(1) |
+| Min/Max tracking | `heapq` | O(log n) |
+| Range queries | Sorted list + bisect | O(log n) |
+| Frequency count | `Counter` | O(1) |
+| FIFO queue | `deque` | O(1) |
+| LRU cache | `functools.lru_cache` | O(1) |
+
+❌ Forbidden:
+```python
+# O(n) lookup
+if item in list_of_items:
+```
+
+✅ Required:
+```python
+# O(1) lookup
+items_set = set(list_of_items)  # One-time O(n)
+if item in items_set:  # O(1)
+```
+
+---
+
+## 3️⃣ ALGORITHM PATTERNS
+
+### Use optimal patterns:
+
+| Problem Type | Pattern | Complexity |
+|-------------|---------|------------|
+| Find pair with sum | Two pointers / Hash | O(n) |
+| Sliding window | Deque / Two pointers | O(n) |
+| Top K elements | Heap | O(n log k) |
+| Graph traversal | BFS/DFS | O(V + E) |
+| Shortest path | Dijkstra / BFS | O(E log V) |
+| Range sum/update | Prefix sum / Segment tree | O(1) / O(log n) |
+| String matching | KMP / Rabin-Karp | O(n + m) |
+| Subset/combination | Bit manipulation | O(2^n) |
+
+❌ Forbidden:
+```python
+# O(n²) - Nested loops for pair finding
+def find_pair_with_sum(nums, target):
+    for i, a in enumerate(nums):
+        for j, b in enumerate(nums[i+1:], i+1):
+            if a + b == target:
+                return (i, j)
+```
+
+✅ Required:
+```python
+# O(n) - Hash map approach
+def find_pair_with_sum(nums: list[int], target: int) -> tuple[int, int] | None:
+    seen: dict[int, int] = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return (seen[complement], i)
+        seen[num] = i
+    return None
+```
+
+---
+
+## 4️⃣ DATABASE QUERY EFFICIENCY
+
+### Index Usage
+- ALWAYS check if query uses index
+- Composite indexes for multi-column filters
+- Covering indexes for read-heavy queries
+
+### Query Optimization
+❌ Forbidden:
+```python
+# N+1 problem - O(n) queries
+users = await session.execute(select(User))
+for user in users.scalars():
+    print(user.role.name)  # Additional query per user
+```
+
+✅ Required:
+```python
+# O(1) queries - eager loading
+stmt = select(User).options(joinedload(User.role))
+users = await session.execute(stmt)
+for user in users.scalars():
+    print(user.role.name)  # No additional query
+```
+
+### Pagination
+❌ Forbidden:
+```python
+# Offset pagination - O(n) for deep pages
+select(User).offset(10000).limit(10)
+```
+
+✅ Required:
+```python
+# Cursor pagination - O(1) for any page
+select(User).where(User.id > last_seen_id).limit(10)
+```
+
+---
+
+## 5️⃣ MEMORY EFFICIENCY
+
+### Generator Over List
+❌ Forbidden:
+```python
+# Loads all into memory
+def get_all_users():
+    return [process(u) for u in fetch_users()]
+```
+
+✅ Required:
+```python
+# Streams results
+def get_all_users() -> Iterator[ProcessedUser]:
+    for user in fetch_users():
+        yield process(user)
+```
+
+### Batch Processing
+❌ Forbidden:
+```python
+# Memory explosion for large datasets
+all_data = await fetch_all_records()  # 1M records in memory
+process(all_data)
+```
+
+✅ Required:
+```python
+# Chunked processing
+BATCH_SIZE = 1000
+async for batch in fetch_records_batched(batch_size=BATCH_SIZE):
+    await process_batch(batch)
+```
+
+---
+
+## 6️⃣ CACHING STRATEGY
+
+### Cache What's Expensive
+```python
+from functools import lru_cache
+
+@lru_cache(maxsize=128)
+def compute_expensive(param: str) -> Result:
+    ...
+```
+
+### Cache Invalidation Rules
+- Cache read-heavy, rarely-changing data
+- Set appropriate TTL
+- Invalidate on write
+
+---
+
+## 7️⃣ ASYNC EFFICIENCY
+
+### Concurrent Operations
+❌ Forbidden:
+```python
+# Sequential - O(n * latency)
+results = []
+for url in urls:
+    results.append(await fetch(url))
+```
+
+✅ Required:
+```python
+# Concurrent - O(latency) regardless of n
+results = await asyncio.gather(*[fetch(url) for url in urls])
+```
+
+### Connection Pooling
+- ALWAYS use connection pools
+- Set appropriate pool size
+- Reuse connections
+
+---
+
+## 8️⃣ STRING OPERATIONS
+
+❌ Forbidden:
+```python
+# O(n²) - String concatenation in loop
+result = ""
+for item in items:
+    result += str(item)
+```
+
+✅ Required:
+```python
+# O(n) - Join
+result = "".join(str(item) for item in items)
+```
+
+---
+
+## 9️⃣ EARLY TERMINATION
+
+### Exit as soon as possible
+❌ Forbidden:
+```python
+def has_admin(users: list[User]) -> bool:
+    admins = [u for u in users if u.is_admin]
+    return len(admins) > 0
+```
+
+✅ Required:
+```python
+def has_admin(users: list[User]) -> bool:
+    return any(u.is_admin for u in users)  # Stops at first True
+```
+
+---
+
+## 🔟 PRECOMPUTATION
+
+### Compute once, use many
+❌ Forbidden:
+```python
+# Recomputes on every call
+def get_discount(user_tier: str) -> Decimal:
+    tiers = compute_tier_discounts()  # Expensive
+    return tiers[user_tier]
+```
+
+✅ Required:
+```python
+# Computed once at module load
+TIER_DISCOUNTS: dict[str, Decimal] = {
+    "bronze": Decimal("0.05"),
+    "silver": Decimal("0.10"),
+    "gold": Decimal("0.15"),
+}
+
+def get_discount(user_tier: str) -> Decimal:
+    return TIER_DISCOUNTS.get(user_tier, Decimal("0"))
+```
+
+---
+
+## 🧠 EFFICIENCY CHECKLIST (MANDATORY)
+
+Before generating code, you MUST verify:
+
+1. [ ] Time complexity is stated and optimal
+2. [ ] Space complexity is acceptable
+3. [ ] Correct data structure is used
+4. [ ] No N+1 query problems
+5. [ ] No unnecessary iterations
+6. [ ] Early termination where possible
+7. [ ] Caching for expensive operations
+8. [ ] Async operations are concurrent
+9. [ ] Memory-efficient for large data
+
+---
+
+## 🔴 SUBOPTIMAL = REFUSAL
+
+If a more efficient solution exists:
+- STOP
+- State the optimal approach
+- Explain the complexity improvement
+- Implement the efficient version
+
+> **Competitive mindset**: If there's an O(n) solution, O(n²) is WRONG.

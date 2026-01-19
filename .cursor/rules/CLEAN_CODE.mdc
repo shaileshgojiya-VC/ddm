@@ -1,0 +1,255 @@
+---
+alwaysApply: true
+---
+
+# 🧹 CLEAN CODE PRINCIPLES (MANDATORY)
+
+---
+
+## 🎯 CORE PHILOSOPHY
+
+> Code is read 10x more than it's written.
+> Optimize for the reader, not the writer.
+
+---
+
+## 1️⃣ NAMING RULES
+
+### Variables
+- Names MUST reveal intent
+- Names MUST be pronounceable
+- Names MUST be searchable
+
+❌ Forbidden:
+```python
+d = 86400  # What is this?
+lst = []
+tmp = get_data()
+```
+
+✅ Required:
+```python
+SECONDS_PER_DAY = 86400
+active_users: list[User] = []
+user_profile = get_user_profile(user_id=user_id)
+```
+
+### Functions
+- MUST be verbs or verb phrases
+- MUST describe what they do, not how
+
+❌ Forbidden:
+```python
+def process(data):
+def handle(x):
+def do_stuff():
+```
+
+✅ Required:
+```python
+async def fetch_active_users(session: AsyncSession) -> list[User]:
+async def deactivate_user(session: AsyncSession, user_id: int) -> None:
+async def calculate_order_total(order: Order) -> Decimal:
+```
+
+### Classes
+- MUST be nouns
+- MUST represent a single concept
+
+---
+
+## 2️⃣ FUNCTION RULES
+
+### Size
+- Maximum 20 lines (excluding docstring)
+- If longer → split into smaller functions
+
+### Arguments
+- Maximum 4 arguments
+- If more → use a dataclass or Pydantic model
+
+❌ Forbidden:
+```python
+async def create_user(name, email, password, role, company, department, manager):
+```
+
+✅ Required:
+```python
+class CreateUserRequest(BaseModel):
+    name: str
+    email: EmailStr
+    password: SecretStr
+    role_id: int
+    company_id: int
+    department_id: int | None = None
+    manager_id: int | None = None
+
+async def create_user(session: AsyncSession, data: CreateUserRequest) -> User:
+```
+
+### Single Responsibility
+- One function = one task
+- One level of abstraction per function
+
+❌ Forbidden:
+```python
+async def process_order(order):
+    # Validate
+    # Calculate totals
+    # Update inventory
+    # Send email
+    # Log analytics
+```
+
+✅ Required:
+```python
+async def process_order(session: AsyncSession, order: Order) -> ProcessedOrder:
+    validated = validate_order(order=order)
+    totals = calculate_totals(order=validated)
+    await update_inventory(session=session, order=validated)
+    await queue_notification(order_id=order.id)
+    return ProcessedOrder(order=validated, totals=totals)
+```
+
+---
+
+## 3️⃣ COMMENT RULES
+
+### Good Comments
+- Legal/license headers
+- Explanation of intent (WHY, not WHAT)
+- Warning of consequences
+- TODO with ticket reference
+
+### Bad Comments (FORBIDDEN)
+- Redundant comments
+- Commented-out code
+- Journal/changelog comments
+- Noise comments
+
+❌ Forbidden:
+```python
+# Get the user
+user = get_user(id)
+
+# Check if user exists
+if user:
+    # Return user
+    return user
+```
+
+✅ Required:
+```python
+# Performance: Using raw SQL to avoid ORM overhead on 10k+ rows
+# See benchmark results: /docs/benchmarks/user-export.md
+result = await session.execute(text(RAW_EXPORT_QUERY))
+```
+
+---
+
+## 4️⃣ FORMATTING RULES
+
+### Vertical
+- Related code MUST be grouped together
+- Blank lines separate concepts
+- Dependent functions MUST be close
+
+### Horizontal
+- Max 88 characters per line (Black default)
+- No horizontal alignment (it breaks on changes)
+
+---
+
+## 5️⃣ ERROR HANDLING
+
+### Be Specific
+- Catch specific exceptions
+- Never catch `Exception` unless re-raising
+
+❌ Forbidden:
+```python
+try:
+    result = await fetch_data()
+except Exception:
+    return None
+```
+
+✅ Required:
+```python
+try:
+    result = await fetch_data()
+except ConnectionError as e:
+    logger.error("Database connection failed", exc_info=e)
+    raise ServiceUnavailableError("Database temporarily unavailable") from e
+except ValidationError as e:
+    raise BadRequestError(detail=str(e)) from e
+```
+
+### Don't Return None for Errors
+- Raise exceptions for exceptional cases
+- Use Optional only for "not found" cases
+
+---
+
+## 6️⃣ BOUNDARY RULES
+
+### External Dependencies
+- Wrap external APIs in adapters
+- Never let external types leak into core logic
+
+✅ Required:
+```python
+# adapters/email.py
+class EmailAdapter(Protocol):
+    async def send(self, to: str, subject: str, body: str) -> None: ...
+
+class SendGridAdapter:
+    async def send(self, to: str, subject: str, body: str) -> None:
+        # SendGrid-specific implementation
+        ...
+```
+
+---
+
+## 7️⃣ TESTING PRINCIPLES
+
+### F.I.R.S.T.
+- **F**ast: Tests MUST run quickly
+- **I**ndependent: Tests MUST NOT depend on each other
+- **R**epeatable: Tests MUST produce same result every time
+- **S**elf-validating: Tests MUST have boolean output (pass/fail)
+- **T**imely: Tests MUST be written before/with production code
+
+### One Assert Per Concept
+- Test one logical concept per test function
+- Multiple asserts OK if testing same concept
+
+---
+
+## 8️⃣ CODE SMELLS TO ELIMINATE
+
+### Immediate Refactor Required
+- Duplicated code
+- Long functions (>20 lines)
+- Long parameter lists (>4)
+- Divergent change (one class changed for many reasons)
+- Shotgun surgery (one change affects many classes)
+- Feature envy (method uses another class's data excessively)
+- Data clumps (same data groups appear together repeatedly)
+- Primitive obsession (using primitives instead of small objects)
+- Switch statements (use polymorphism or maps)
+- Speculative generality (unused abstractions)
+- Dead code
+
+---
+
+## 🧠 CLEAN CODE CHECKLIST
+
+Before committing, verify:
+
+1. [ ] Can someone understand this in 5 seconds?
+2. [ ] Are all names intention-revealing?
+3. [ ] Is each function doing ONE thing?
+4. [ ] Are there any code smells?
+5. [ ] Is error handling explicit and specific?
+6. [ ] Are external dependencies isolated?

@@ -1,0 +1,812 @@
+{
+  "result": {
+    "ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "ID"
+    },
+    "TITLE": {
+      "type": "string",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Company Name"
+    },
+    "COMPANY_TYPE": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "COMPANY_TYPE",
+      "title": "Company type"
+    },
+    "LOGO": {
+      "type": "file",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Logo"
+    },
+    "ADDRESS": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Street address"
+    },
+    "ADDRESS_2": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Address (line 2)"
+    },
+    "ADDRESS_CITY": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "City"
+    },
+    "ADDRESS_POSTAL_CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Zip"
+    },
+    "ADDRESS_REGION": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Region"
+    },
+    "ADDRESS_PROVINCE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "State / Province"
+    },
+    "ADDRESS_COUNTRY": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Country"
+    },
+    "ADDRESS_COUNTRY_CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Country Code"
+    },
+    "ADDRESS_LOC_ADDR_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Location address ID"
+    },
+    "ADDRESS_LEGAL": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Legal address"
+    },
+    "REG_ADDRESS": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Address"
+    },
+    "REG_ADDRESS_2": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Address (line 2)"
+    },
+    "REG_ADDRESS_CITY": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing City"
+    },
+    "REG_ADDRESS_POSTAL_CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Zip"
+    },
+    "REG_ADDRESS_REGION": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Region"
+    },
+    "REG_ADDRESS_PROVINCE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing State / Province"
+    },
+    "REG_ADDRESS_COUNTRY": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Country"
+    },
+    "REG_ADDRESS_COUNTRY_CODE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Billing Country Code"
+    },
+    "REG_ADDRESS_LOC_ADDR_ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Legal address location address ID"
+    },
+    "BANKING_DETAILS": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Payment details"
+    },
+    "INDUSTRY": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "INDUSTRY",
+      "title": "Industry"
+    },
+    "EMPLOYEES": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "EMPLOYEES",
+      "title": "Employees"
+    },
+    "CURRENCY_ID": {
+      "type": "crm_currency",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Currency"
+    },
+    "REVENUE": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Annual revenue"
+    },
+    "OPENED": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Available to everyone"
+    },
+    "COMMENTS": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Comment"
+    },
+    "HAS_PHONE": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Has phone"
+    },
+    "HAS_EMAIL": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Has email"
+    },
+    "HAS_IMOL": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Has Open Channel"
+    },
+    "IS_MY_COMPANY": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "My Company"
+    },
+    "ASSIGNED_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Responsible person"
+    },
+    "CREATED_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created by"
+    },
+    "MODIFY_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified by"
+    },
+    "DATE_CREATE": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created on"
+    },
+    "DATE_MODIFY": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified on"
+    },
+    "CONTACT_ID": {
+      "type": "crm_contact",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "Contact"
+    },
+    "LEAD_ID": {
+      "type": "crm_lead",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Lead",
+      "settings": {
+        "parentEntityTypeId": 1
+      }
+    },
+    "ORIGINATOR_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "External source"
+    },
+    "ORIGIN_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Item ID in data source"
+    },
+    "ORIGIN_VERSION": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Original version"
+    },
+    "UTM_SOURCE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Ad system"
+    },
+    "UTM_MEDIUM": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Medium"
+    },
+    "UTM_CAMPAIGN": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Ad campaign UTM"
+    },
+    "UTM_CONTENT": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Campaign contents"
+    },
+    "UTM_TERM": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Campaign search term"
+    },
+    "LAST_ACTIVITY_TIME": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Last updated on"
+    },
+    "LAST_ACTIVITY_BY": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Last timeline activity added by"
+    },
+    "LAST_COMMUNICATION_TIME": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Last contact"
+    },
+    "PHONE": {
+      "type": "crm_multifield",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "Phone"
+    },
+    "EMAIL": {
+      "type": "crm_multifield",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "E-mail"
+    },
+    "WEB": {
+      "type": "crm_multifield",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "Website"
+    },
+    "IM": {
+      "type": "crm_multifield",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "Messenger"
+    },
+    "LINK": {
+      "type": "crm_multifield",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "LINK"
+    },
+    "UF_CRM_1634127101221": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1634127101221",
+      "listLabel": "Type of Buyer",
+      "formLabel": "Type of Buyer",
+      "filterLabel": "Type of Buyer"
+    },
+    "UF_CRM_1635596050682": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635596050682",
+      "listLabel": "Prefix",
+      "formLabel": "Prefix",
+      "filterLabel": "Prefix"
+    },
+    "UF_CRM_1636449149235": {
+      "type": "file",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1636449149235",
+      "listLabel": "Certificates",
+      "formLabel": "Certificates",
+      "filterLabel": "Certificates"
+    },
+    "UF_CRM_1636616195": {
+      "type": "employee",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1636616195",
+      "listLabel": "OPS",
+      "formLabel": "OPS",
+      "filterLabel": "OPS"
+    },
+    "UF_CRM_1638368595963": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1638368595963",
+      "listLabel": "Health Mark",
+      "formLabel": "Health Mark",
+      "filterLabel": "Health Mark"
+    },
+    "UF_CRM_61AE79910F8CA": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_61AE79910F8CA",
+      "listLabel": "#TAG",
+      "formLabel": "#TAG",
+      "filterLabel": "#TAG"
+    },
+    "UF_CRM_61FA8D16727BD": {
+      "type": "enumeration",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_61FA8D16727BD",
+      "listLabel": "Product Category",
+      "formLabel": "Product Category",
+      "filterLabel": "Product Category"
+    },
+    "UF_CRM_627CFE7EE20F5": {
+      "type": "boolean",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_627CFE7EE20F5",
+      "listLabel": "Week Commitment",
+      "formLabel": "Week Commitment",
+      "filterLabel": "Week Commitment"
+    },
+    "UF_CRM_1653743304125": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1653743304125",
+      "listLabel": "Annual Order Volume (FCLs)",
+      "formLabel": "Annual Order Volume (FCLs)",
+      "filterLabel": "Annual Order Volume (FCLs)"
+    },
+    "UF_CRM_6294BD6C9913B": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6294BD6C9913B",
+      "listLabel": "Lost Reason",
+      "formLabel": "Lost Reason",
+      "filterLabel": "Lost Reason"
+    },
+    "UF_CRM_6294BD6D4FFDE": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6294BD6D4FFDE",
+      "listLabel": "Date of Inquiry (inquiry date / cold contact date)",
+      "formLabel": "Date of Inquiry (inquiry date / cold contact date)",
+      "filterLabel": "Date of Inquiry (inquiry date / cold contact date)"
+    },
+    "UF_CRM_62972EC446412": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62972EC446412",
+      "listLabel": "Origin accepted",
+      "formLabel": "Origin accepted",
+      "filterLabel": "Origin accepted"
+    },
+    "UF_CRM_62972EC454F84": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62972EC454F84",
+      "listLabel": "Estimated Volume",
+      "formLabel": "Estimated Volume",
+      "filterLabel": "Estimated Volume"
+    },
+    "UF_CRM_1669294486": {
+      "type": "address",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1669294486",
+      "listLabel": "Country",
+      "formLabel": "Country",
+      "filterLabel": "Country"
+    },
+    "UF_CRM_646DE7A596B0F": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_646DE7A596B0F",
+      "listLabel": "Product Category",
+      "formLabel": "Product Category",
+      "filterLabel": "Product Category"
+    },
+    "UF_CRM_1718873476": {
+      "type": "boolean",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1718873476",
+      "listLabel": "Purchased",
+      "formLabel": "Purchased",
+      "filterLabel": "Purchased"
+    },
+    "UF_CRM_1718889923": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1718889923",
+      "listLabel": "Stars",
+      "formLabel": "Stars",
+      "filterLabel": "Stars"
+    },
+    "UF_CRM_1722199447": {
+      "type": "money",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1722199447",
+      "listLabel": "Projected",
+      "formLabel": "Projected",
+      "filterLabel": "Projected"
+    },
+    "UF_CRM_1732522299046": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1732522299046",
+      "listLabel": "Factory certificates:  a. ISO    b. HACCP    b. FSSC    c. GMP   d.\tLICENSE",
+      "formLabel": "Factory certificates:  a. ISO    b. HACCP    b. FSSC    c. GMP   d.\tLICENSE",
+      "filterLabel": "Factory certificates:  a. ISO    b. HACCP    b. FSSC    c. GMP   d.\tLICENSE"
+    },
+    "UF_CRM_677FA5CA74AEA": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_677FA5CA74AEA",
+      "listLabel": "Lead Rank",
+      "formLabel": "Lead Rank",
+      "filterLabel": "Lead Rank"
+    },
+    "UF_CRM_1749531210567": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1749531210567",
+      "listLabel": "New list",
+      "formLabel": "New list",
+      "filterLabel": "New list"
+    },
+    "UF_CRM_1749532678091": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1749532678091",
+      "listLabel": "New text",
+      "formLabel": "New text",
+      "filterLabel": "New text"
+    },
+    "UF_CRM_1749535082": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1749535082",
+      "listLabel": "Products Manufactured",
+      "formLabel": "Products Manufactured",
+      "filterLabel": "Products Manufactured"
+    },
+    "UF_CRM_1749542394": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1749542394",
+      "listLabel": "Supplier Name",
+      "formLabel": "Supplier Name",
+      "filterLabel": "Supplier Name"
+    }
+  }
+}
+

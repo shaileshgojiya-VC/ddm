@@ -1,0 +1,250 @@
+---
+alwaysApply: true
+---
+
+# 🏗️ SOLID PRINCIPLES (MANDATORY)
+
+---
+
+## 🎯 OVERVIEW
+
+SOLID = Foundation for maintainable, extensible code.
+Violation = Technical debt.
+
+---
+
+## S — SINGLE RESPONSIBILITY PRINCIPLE
+
+> A module should have one, and only one, reason to change.
+
+### Rule
+- One class/function = one responsibility
+- One file = one domain concept
+
+❌ Forbidden:
+```python
+class UserService:
+    async def create_user(self, ...): ...
+    async def send_welcome_email(self, ...): ...
+    async def generate_report(self, ...): ...
+    async def validate_password(self, ...): ...
+```
+
+✅ Required:
+```python
+# services/user.py
+async def create_user(session: AsyncSession, data: CreateUserRequest) -> User: ...
+
+# services/notification.py
+async def send_welcome_email(user: User) -> None: ...
+
+# services/report.py
+async def generate_user_report(users: list[User]) -> Report: ...
+
+# core/security.py
+def validate_password(password: str) -> bool: ...
+```
+
+### Detection
+Ask: "What is the ONE reason this would change?"
+If multiple answers → split.
+
+---
+
+## O — OPEN/CLOSED PRINCIPLE
+
+> Software entities should be open for extension, closed for modification.
+
+### Rule
+- Add new behavior by adding new code
+- Never modify existing working code
+
+❌ Forbidden:
+```python
+async def process_payment(payment_type: str, amount: Decimal):
+    if payment_type == "credit":
+        # credit card logic
+    elif payment_type == "paypal":
+        # paypal logic
+    elif payment_type == "crypto":  # New requirement = modification
+        # crypto logic
+```
+
+✅ Required:
+```python
+class PaymentProcessor(Protocol):
+    async def process(self, amount: Decimal) -> PaymentResult: ...
+
+PROCESSORS: dict[str, PaymentProcessor] = {
+    "credit": CreditCardProcessor(),
+    "paypal": PayPalProcessor(),
+}
+
+# Adding crypto = adding new entry, no modification
+PROCESSORS["crypto"] = CryptoProcessor()
+
+async def process_payment(payment_type: str, amount: Decimal) -> PaymentResult:
+    processor = PROCESSORS.get(payment_type)
+    if not processor:
+        raise UnsupportedPaymentType(payment_type)
+    return await processor.process(amount=amount)
+```
+
+### Detection
+Ask: "Can I add a feature without modifying existing code?"
+If no → redesign with extension points.
+
+---
+
+## L — LISKOV SUBSTITUTION PRINCIPLE
+
+> Subtypes must be substitutable for their base types.
+
+### Rule
+- Child classes MUST honor parent contracts
+- Override methods MUST NOT strengthen preconditions
+- Override methods MUST NOT weaken postconditions
+
+❌ Forbidden:
+```python
+class Bird:
+    def fly(self) -> None: ...
+
+class Penguin(Bird):
+    def fly(self) -> None:
+        raise NotImplementedError("Penguins can't fly")  # Violates LSP
+```
+
+✅ Required:
+```python
+class Bird(Protocol):
+    def move(self) -> None: ...
+
+class FlyingBird:
+    def move(self) -> None:
+        self.fly()
+    
+    def fly(self) -> None: ...
+
+class SwimmingBird:
+    def move(self) -> None:
+        self.swim()
+    
+    def swim(self) -> None: ...
+```
+
+### Detection
+Ask: "Can I replace parent with child without breaking behavior?"
+If no → inheritance is wrong, use composition.
+
+---
+
+## I — INTERFACE SEGREGATION PRINCIPLE
+
+> Clients should not be forced to depend on interfaces they don't use.
+
+### Rule
+- Small, focused interfaces
+- No "fat" interfaces
+- Compose interfaces when needed
+
+❌ Forbidden:
+```python
+class Repository(Protocol):
+    async def create(self, entity: T) -> T: ...
+    async def read(self, id: int) -> T | None: ...
+    async def update(self, entity: T) -> T: ...
+    async def delete(self, id: int) -> None: ...
+    async def bulk_create(self, entities: list[T]) -> list[T]: ...
+    async def search(self, query: str) -> list[T]: ...
+    async def export_csv(self) -> bytes: ...  # Not all repos need this
+```
+
+✅ Required:
+```python
+class Readable(Protocol[T]):
+    async def get(self, id: int) -> T | None: ...
+
+class Writable(Protocol[T]):
+    async def create(self, entity: T) -> T: ...
+    async def update(self, entity: T) -> T: ...
+
+class Deletable(Protocol):
+    async def delete(self, id: int) -> None: ...
+
+class Searchable(Protocol[T]):
+    async def search(self, query: str) -> list[T]: ...
+
+# Compose only what's needed
+class UserRepository(Readable[User], Writable[User], Searchable[User]):
+    ...
+```
+
+### Detection
+Ask: "Does this client use ALL methods of this interface?"
+If no → split interface.
+
+---
+
+## D — DEPENDENCY INVERSION PRINCIPLE
+
+> High-level modules should not depend on low-level modules.
+> Both should depend on abstractions.
+
+### Rule
+- Depend on protocols/interfaces, not implementations
+- Inject dependencies, don't instantiate them
+
+❌ Forbidden:
+```python
+class OrderService:
+    def __init__(self):
+        self.db = PostgresDatabase()  # Concrete dependency
+        self.mailer = SendGridMailer()  # Concrete dependency
+```
+
+✅ Required:
+```python
+class Database(Protocol):
+    async def execute(self, query: str) -> Any: ...
+
+class Mailer(Protocol):
+    async def send(self, to: str, subject: str, body: str) -> None: ...
+
+async def create_order(
+    session: AsyncSession,  # Injected
+    mailer: Mailer,  # Injected
+    data: CreateOrderRequest,
+) -> Order:
+    ...
+
+# In FastAPI dependency injection
+async def get_mailer() -> Mailer:
+    return SendGridMailer(api_key=settings.SENDGRID_API_KEY)
+```
+
+### Detection
+Ask: "Can I swap the implementation without changing the consumer?"
+If no → introduce abstraction.
+
+---
+
+## 🧠 SOLID QUICK REFERENCE
+
+| Principle | One-liner | Violation Sign |
+|-----------|-----------|----------------|
+| **S**RP | One reason to change | Class does too much |
+| **O**CP | Extend, don't modify | `if/elif` chains grow |
+| **L**SP | Subtypes are substitutable | `isinstance` checks |
+| **I**SP | Small, focused interfaces | Unused method implementations |
+| **D**IP | Depend on abstractions | `import` concrete classes |
+
+---
+
+## 🔴 VIOLATION = REFUSAL
+
+If code violates SOLID:
+- STOP generation
+- Explain which principle is violated
+- Propose compliant design
+- Wait for CONFIRM before proceeding

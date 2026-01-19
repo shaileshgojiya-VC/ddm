@@ -1,0 +1,103 @@
+---
+alwaysApply: true
+---
+
+#must followed rules
+
+auth <--- Module For Each Entity Specific APIs
+
+├── __init__.py <--- store api here
+
+├── models <-- database related stuff is here
+
+│  ├── __init__.py
+
+│  ├── attribute.py <--- store attribute & enums etc.
+
+│  ├── methods <--- store methods here
+
+│  │  ├── __init__.py
+
+│  │  └── method1.py <---service specific database query
+
+│  └── model.py <-- database model table SQLalchemy
+
+├── schema.py <--- store schema here(must follow)
+
+├── serializer.py <--- Marshmallow serializer(must follow)
+
+├── services <--- store service here(business logic + standard response)
+
+│  ├── __init__.py
+
+│  ├── auth_service.py                  services              
+
+│  ├── module_service.py                     
+
+│  ├── role_service.py                     
+
+│  ├── user_create_service.py                     
+
+│  ├── user_delete_service.py                     
+
+│  ├── user_get_service.py                     
+
+│  └── user_update_service.py                     
+
+├── test.py
+
+└── views.py <--- api routes here(must follow)
+
+
+
+#must followed rules
+- always use the context7 mcp when we try to impliment something new(for ex. auth, cookies,caching,background processing , real- time notifification etc.)
+- fetch and find the best approach from the web using MCP server of context7 and then explain first then start working after planning
+
+- use async-await for the everything(exception -> don't use on syncronous code)
+
+- do not create any other files except the stucutre given
+
+- always follow this example module structure
+
+- use the constand variable and the message variable for the abstraction
+
+- always use the standard response format from the files given
+
+- always write db query in the methods folder
+
+- don't write the query in the service file
+
+- always write the business logic in the service file
+
+- saparate the business logic for each service
+
+- always use the standard response format from the files given
+
+- follow the abstraction of the constand variable and the message variable serilizer aliases
+
+- user proper convention for the naming of the files and the folders
+
+- proper status code for the standard response
+
+- write proffesional docstring for the files and the functions
+
+- use oocp concepts
+
+- no raw string in the code
+
+- follow saparation of concerns
+
+- follow best REST API standards
+
+- create the reuable componenets in the utils and the config folders accordingly
+
+logger.info("STEP 1: Starting user creation workflow")
+
+
+
+
+
+logger.info("STEP 2: Validating input data")
+
+# validation logic here**

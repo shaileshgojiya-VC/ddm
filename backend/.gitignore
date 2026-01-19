@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+app.log
+logs/
+
+# Media files
+media/
+uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Poetry
+poetry.lock
+
+# Database
+*.db
+*.sqlite3
+
+# Adminer
+adminer.php
+
+alembic.ini
+migrations/
+poetry.pyproject.toml
+.cursor/
+.cursor/rules/
+.vscode/
+.git/alembic.ini
+env.py
+script.py.mako
+migrations/
+
+Fetch_data_email_mathieu_full/
+scripts/
+database_export_20251226_120725.sql
+email_attechments_mathieu/

@@ -1,0 +1,369 @@
+---
+alwaysApply: true
+---
+
+# 🧠 BACKEND ENGINEERING RULES (MANDATORY)
+
+*(FastAPI · Async SQLAlchemy · Pydantic)*
+
+---
+
+## 🔴 ABSOLUTE PRIME DIRECTIVE
+
+**DO NOT WRITE CODE IMMEDIATELY**
+
+Before generating code, you MUST:
+
+1. Identify the **minimum viable solution**
+2. Remove any logic that can be expressed as **data**
+3. Prefer reuse over new abstractions
+
+If code can be avoided → **avoid it**
+
+---
+
+## 1️⃣ CODE REDUCTION RULE
+
+> If 100 lines can be expressed in 10, the 100 lines are WRONG.
+
+You MUST:
+- Eliminate duplication
+- Collapse branching logic
+- Extract reusable primitives
+
+❌ Forbidden:
+```python
+if x:
+    do_x()
+if y:
+    do_y()
+```
+
+✅ Required:
+```python
+HANDLERS = {"x": do_x, "y": do_y}
+HANDLERS.get(key, noop)()
+```
+
+---
+
+## 2️⃣ NO DUPLICATE LOGIC — ZERO TOLERANCE
+
+If logic appears **more than once**, you MUST:
+- Extract it into a reusable function
+- Or encode it as configuration
+
+❌ Forbidden:
+```python
+await session.execute(stmt1)
+await session.execute(stmt2)
+```
+
+✅ Required:
+```python
+async def exec_scalar(session: AsyncSession, stmt: Select) -> Any:
+    return (await session.execute(stmt)).scalar_one_or_none()
+```
+
+---
+
+## 3️⃣ ORM BOUNDARY RULE
+
+ORM models MUST NEVER:
+- Be returned from endpoints directly
+- Be passed to serializers implicitly
+- Leak outside the service layer
+
+❌ Forbidden:
+```python
+return user  # ORM model
+```
+
+✅ Required:
+```python
+return UserResponseSchema.model_validate(user)
+```
+
+---
+
+## 4️⃣ SERIALIZATION IS EXPLICIT
+
+You MUST NEVER:
+- Choose serializers implicitly
+- Hardcode response shapes in views
+
+❌ Forbidden:
+```python
+UserSchema().dump(obj)
+```
+
+✅ Required:
+```python
+SERIALIZERS: dict[str, type[BaseModel]] = {
+    "list": UserListSchema,
+    "detail": UserDetailSchema,
+}
+return SERIALIZERS[mode].model_validate(obj)
+```
+
+---
+
+## 5️⃣ QUERY SHAPE = RESPONSE SHAPE
+
+You MUST:
+- Fetch ONLY the data required for the response
+- Use `load_only`, column selects, or DTOs
+
+❌ Forbidden:
+```python
+select(User)  # Loads all columns
+```
+
+✅ Required:
+```python
+select(User).options(load_only(User.id, User.email, User.name))
+```
+
+---
+
+## 6️⃣ LOADER STRATEGY RULE (CRITICAL)
+
+Lazy loading is **STRICTLY FORBIDDEN** in async context.
+
+You MUST explicitly declare loader strategy:
+- `joinedload` → 1-to-1, many-to-1
+- `selectinload` → collections (1-to-many)
+- `contains_eager` → manual joins with filtering
+
+❌ Forbidden:
+```python
+user.role.name  # Implicit lazy load
+```
+
+✅ Required:
+```python
+select(User).options(joinedload(User.role))
+```
+
+---
+
+## 7️⃣ DATA > CONDITIONALS
+
+Replace conditionals with:
+- Maps/dictionaries
+- Sets for membership tests
+- Configuration objects
+
+❌ Forbidden:
+```python
+if include_role:
+    options.append(joinedload(User.role))
+if include_company:
+    options.append(joinedload(User.company))
+```
+
+✅ Required:
+```python
+LOADERS: dict[str, LoaderOption] = {
+    "role": joinedload(User.role),
+    "company": joinedload(User.company),
+}
+options = [LOADERS[k] for k in includes if k in LOADERS]
+```
+
+---
+
+## 8️⃣ FUNCTION OVER CLASS RULE
+
+You MUST prefer:
+- Pure functions
+- Stateless helpers
+
+Classes are allowed ONLY if:
+- State management is required
+- Polymorphism is explicitly needed
+
+❌ Forbidden:
+```python
+class UserService:
+    async def get_user(self, ...):
+```
+
+✅ Required:
+```python
+async def get_user(session: AsyncSession, user_id: int) -> User | None:
+```
+
+---
+
+## 9️⃣ ONE DB ROUND TRIP DEFAULT
+
+You MUST assume:
+- Exactly ONE query per request as default
+
+More than one query requires:
+- Explicit justification in comments
+- Performance reasoning
+
+❌ Forbidden (N+1):
+```python
+for item in items:
+    _ = item.children  # N additional queries
+```
+
+✅ Required:
+```python
+select(Item).options(selectinload(Item.children))
+```
+
+---
+
+## 🔟 VECTORIZATION OVER ITERATION
+
+You MUST prefer:
+- Bulk operations
+- Batch serialization
+- Set operations
+
+❌ Forbidden:
+```python
+results = [schema.model_validate(x) for x in items]
+```
+
+✅ Required:
+```python
+results = [schema.model_validate(x) for x in items]  # OK if schema reused
+# Or use TypeAdapter for bulk:
+adapter = TypeAdapter(list[UserSchema])
+results = adapter.validate_python(items)
+```
+
+---
+
+## 1️⃣1️⃣ READ-ONLY FAST PATH RULE
+
+For read-heavy endpoints, you MUST:
+- Bypass ORM objects when possible
+- Return flat dictionaries or tuples
+
+✅ Required for high-performance reads:
+```python
+stmt = select(
+    User.id,
+    User.email,
+    Role.name.label("role_name"),
+).join(User.role)
+
+rows = (await session.execute(stmt)).mappings().all()
+return [dict(row) for row in rows]
+```
+
+---
+
+## 1️⃣2️⃣ CONFIGURATION OVER FLAGS
+
+Encode feature variation as:
+- Configuration dictionaries
+- Lookup tables
+- Enums
+
+❌ Forbidden:
+```python
+if detailed:
+    return DetailedSchema
+else:
+    return BasicSchema
+```
+
+✅ Required:
+```python
+class ResponseMode(Enum):
+    BASIC = "basic"
+    DETAILED = "detailed"
+
+RESPONSE_SCHEMAS: dict[ResponseMode, type[BaseModel]] = {
+    ResponseMode.BASIC: BasicSchema,
+    ResponseMode.DETAILED: DetailedSchema,
+}
+```
+
+---
+
+## 1️⃣3️⃣ EXTENSIBILITY RULE (OPEN/CLOSED)
+
+You MUST write code such that:
+- Adding a new feature requires **no modification** to existing code
+- Only **new configuration entries** or **new modules**
+
+If modification is required → design is invalid.
+
+---
+
+## 1️⃣4️⃣ FAIL FAST RULE
+
+Errors must occur at:
+1. Validation layer (Pydantic) → Input errors
+2. Service layer → Business logic errors
+3. Database (constraints) → Data integrity errors
+
+❌ Forbidden:
+```python
+try:
+    ...
+except Exception:
+    pass  # Silent failure
+```
+
+✅ Required:
+```python
+if not user:
+    raise HTTPException(status_code=404, detail="User not found")
+```
+
+---
+
+## 1️⃣5️⃣ TESTABILITY RULE
+
+Every function MUST:
+- Be testable without FastAPI context
+- Accept explicit dependencies as parameters
+
+❌ Forbidden:
+```python
+async def get_user():
+    session = Depends(get_db)  # Implicit
+```
+
+✅ Required:
+```python
+async def get_user(
+    session: AsyncSession,
+    user_id: int,
+) -> User | None:
+```
+
+---
+
+## 🧠 INTERNAL CHECKLIST (MANDATORY BEFORE CODE)
+
+Before generating code, answer:
+
+1. Can this be solved with **less code**?
+2. Can this be expressed as **data/config**?
+3. Is there an existing reusable primitive?
+4. Will this cause **extra DB round trips**?
+5. Is serialization **explicitly controlled**?
+6. Does this violate any SOLID principle?
+
+If any answer is unclear → **STOP and ask**.
+
+---
+
+## 🏁 FINAL DIRECTIVE
+
+> **Do not impress with cleverness.
+> Impress with inevitability.**
+
+The best code should feel like:
+- It could not have been written any other way
+- Removing a single line would break the design

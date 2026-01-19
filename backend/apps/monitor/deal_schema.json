@@ -1,0 +1,1625 @@
+{
+  "result": {
+    "ID": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "ID"
+    },
+    "TITLE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Name"
+    },
+    "TYPE_ID": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "DEAL_TYPE",
+      "title": "Type"
+    },
+    "CATEGORY_ID": {
+      "type": "crm_category",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": true,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Pipeline"
+    },
+    "STAGE_ID": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "DEAL_STAGE",
+      "title": "Deal stage"
+    },
+    "STAGE_SEMANTIC_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Stage group"
+    },
+    "IS_NEW": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "New deal"
+    },
+    "IS_RECURRING": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Recurring deal"
+    },
+    "IS_RETURN_CUSTOMER": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Repeat deal"
+    },
+    "IS_REPEATED_APPROACH": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Repeat inquiry"
+    },
+    "PROBABILITY": {
+      "type": "integer",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Probability"
+    },
+    "CURRENCY_ID": {
+      "type": "crm_currency",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Currency"
+    },
+    "OPPORTUNITY": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Total"
+    },
+    "IS_MANUAL_OPPORTUNITY": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "IS_MANUAL_OPPORTUNITY"
+    },
+    "TAX_VALUE": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Tax rate"
+    },
+    "COMPANY_ID": {
+      "type": "crm_company",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Company",
+      "settings": {
+        "parentEntityTypeId": 4
+      }
+    },
+    "CONTACT_ID": {
+      "type": "crm_contact",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "isDeprecated": true,
+      "title": "Contact"
+    },
+    "CONTACT_IDS": {
+      "type": "crm_contact",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": false,
+      "title": "Contacts"
+    },
+    "QUOTE_ID": {
+      "type": "crm_quote",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Estimate",
+      "settings": {
+        "parentEntityTypeId": 7
+      }
+    },
+    "BEGINDATE": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Start date"
+    },
+    "CLOSEDATE": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "End date"
+    },
+    "OPENED": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Available to everyone"
+    },
+    "CLOSED": {
+      "type": "char",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Closed"
+    },
+    "COMMENTS": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Comment"
+    },
+    "ASSIGNED_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Responsible person"
+    },
+    "CREATED_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created by"
+    },
+    "MODIFY_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified by"
+    },
+    "MOVED_BY_ID": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "MOVED_BY_ID"
+    },
+    "DATE_CREATE": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Created on"
+    },
+    "DATE_MODIFY": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Modified on"
+    },
+    "MOVED_TIME": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "MOVED_TIME"
+    },
+    "SOURCE_ID": {
+      "type": "crm_status",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "statusType": "SOURCE",
+      "title": "Source"
+    },
+    "SOURCE_DESCRIPTION": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Source information"
+    },
+    "LEAD_ID": {
+      "type": "crm_lead",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Lead",
+      "settings": {
+        "parentEntityTypeId": 1
+      }
+    },
+    "ADDITIONAL_INFO": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Additional information"
+    },
+    "LOCATION_ID": {
+      "type": "location",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Location"
+    },
+    "ORIGINATOR_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "External source"
+    },
+    "ORIGIN_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Item ID in data source"
+    },
+    "UTM_SOURCE": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Ad system"
+    },
+    "UTM_MEDIUM": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Medium"
+    },
+    "UTM_CAMPAIGN": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Ad campaign UTM"
+    },
+    "UTM_CONTENT": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Campaign contents"
+    },
+    "UTM_TERM": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Campaign search term"
+    },
+    "PARENT_ID_181": {
+      "type": "crm_entity",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "Purchase Order",
+      "settings": {
+        "parentEntityTypeId": 181
+      }
+    },
+    "LAST_ACTIVITY_TIME": {
+      "type": "datetime",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "LAST_ACTIVITY_TIME"
+    },
+    "LAST_ACTIVITY_BY": {
+      "type": "user",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "LAST_ACTIVITY_BY"
+    },
+    "LAST_COMMUNICATION_TIME": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "LAST_COMMUNICATION_TIME"
+    },
+    "REPEAT_SALE_SEGMENT_ID": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": true,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": false,
+      "title": "REPEAT_SALE_SEGMENT_ID"
+    },
+    "UF_CRM_1633784321": {
+      "type": "crm",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633784321",
+      "listLabel": "Forwarder",
+      "formLabel": "Forwarder",
+      "filterLabel": "Forwarder",
+      "settings": {
+        "COMPANY": "Y"
+      }
+    },
+    "UF_CRM_1633785514380": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633785514380",
+      "listLabel": "Production Date",
+      "formLabel": "Production Date",
+      "filterLabel": "Production Date",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633785522994": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633785522994",
+      "listLabel": "Loading Date",
+      "formLabel": "Loading Date",
+      "filterLabel": "Loading Date",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633785536344": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633785536344",
+      "listLabel": "ETD",
+      "formLabel": "ETD",
+      "filterLabel": "ETD",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633785545797": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633785545797",
+      "listLabel": "ETA",
+      "formLabel": "ETA",
+      "filterLabel": "ETA",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633956786863": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633956786863",
+      "listLabel": "Issuing Bank ref #",
+      "formLabel": "Issuing Bank ref #",
+      "filterLabel": "Issuing Bank ref #",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1633956838921": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633956838921",
+      "listLabel": "Advising Bank ref #",
+      "formLabel": "Advising Bank ref #",
+      "filterLabel": "Advising Bank ref #",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1633956879807": {
+      "type": "boolean",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633956879807",
+      "listLabel": "Advised",
+      "formLabel": "Advised",
+      "filterLabel": "Advised",
+      "settings": {
+        "DEFAULT_VALUE": 0,
+        "DISPLAY": "CHECKBOX",
+        "LABEL": [null, null],
+        "LABEL_CHECKBOX": {
+          "en": "Advised",
+          "br": "Advised",
+          "de": "Advised",
+          "fr": "Advised",
+          "hi": "Advised",
+          "id": "Advised",
+          "in": "Advised",
+          "it": "Advised",
+          "ja": "Advised",
+          "la": "Advised",
+          "ms": "Advised",
+          "pl": "Advised",
+          "ru": "Advised",
+          "sc": "Advised",
+          "tc": "Advised",
+          "th": "Advised",
+          "tr": "Advised",
+          "ua": "Advised",
+          "vn": "Advised"
+        }
+      }
+    },
+    "UF_CRM_1633956936233": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633956936233",
+      "listLabel": "Latest Date of Shipment",
+      "formLabel": "Latest Date of Shipment",
+      "filterLabel": "Latest Date of Shipment",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633957074386": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633957074386",
+      "listLabel": "LC Expiry Date",
+      "formLabel": "LC Expiry Date",
+      "filterLabel": "LC Expiry Date",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_1633957226": {
+      "type": "employee",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633957226",
+      "listLabel": "OPS",
+      "formLabel": "OPS",
+      "filterLabel": "OPS",
+      "settings": []
+    },
+    "UF_CRM_1633957889": {
+      "type": "crm",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633957889",
+      "listLabel": "Buying Company",
+      "formLabel": "Buying Company",
+      "filterLabel": "Buying Company",
+      "settings": {
+        "COMPANY": "Y",
+        "DEAL": "Y",
+        "QUOTE": "Y",
+        "LEAD": null
+      }
+    },
+    "UF_CRM_1633958153568": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633958153568",
+      "listLabel": "Client Payment Term",
+      "formLabel": "Client Payment Term",
+      "filterLabel": "Client Payment Term",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1633958561": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633958561",
+      "listLabel": "INCOTERM",
+      "formLabel": "INCOTERM",
+      "filterLabel": "INCOTERM",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1633958687570": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633958687570",
+      "listLabel": "BL #",
+      "formLabel": "BL #",
+      "filterLabel": "BL #",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1633958772086": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1633958772086",
+      "listLabel": "Doc to Client Track-ID",
+      "formLabel": "Doc to Client Track-ID",
+      "filterLabel": "Doc to Client Track-ID",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1633958804066": {
+      "type": "url",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1633958804066",
+      "listLabel": "Shipment Tracking",
+      "formLabel": "Shipment Tracking",
+      "filterLabel": "Shipment Tracking",
+      "settings": {
+        "POPUP": "Y",
+        "SIZE": 20,
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1634041526926": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1634041526926",
+      "listLabel": "Container #",
+      "formLabel": "Container #",
+      "filterLabel": "Container #",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1634907876": {
+      "type": "enumeration",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1634907876",
+      "listLabel": "Country of Destination",
+      "formLabel": "Country of Destination",
+      "filterLabel": "Country of Destination",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1635339688042": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635339688042",
+      "listLabel": "Client PO / Reference No.",
+      "formLabel": "Client PO / Reference No.",
+      "filterLabel": "Client PO / Reference No.",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1635616468": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635616468",
+      "listLabel": "Manufacturer Delivery Terms",
+      "formLabel": "Manufacturer Delivery Terms",
+      "filterLabel": "Manufacturer Delivery Terms",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1635616625": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635616625",
+      "listLabel": "Manufacture Payment Terms",
+      "formLabel": "Manufacture Payment Terms",
+      "filterLabel": "Manufacture Payment Terms",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1635859517350": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635859517350",
+      "listLabel": "Loaded Container Quantity (e.g., 1xTruckload x 28 Pallet x 80 Tray x 20 Cans)",
+      "formLabel": "Loaded Container Quantity (e.g., 1xTruckload x 28 Pallet x 80 Tray x 20 Cans)",
+      "filterLabel": "Loaded Container Quantity (e.g., 1xTruckload x 28 Pallet x 80 Tray x 20 Cans)",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1635945858198": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635945858198",
+      "listLabel": "PI#",
+      "formLabel": "PI#",
+      "filterLabel": "PI#",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1635959026": {
+      "type": "crm",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1635959026",
+      "listLabel": "Export Company",
+      "formLabel": "Export Company",
+      "filterLabel": "Export Company",
+      "settings": {
+        "COMPANY": "Y",
+        "DEAL": "Y",
+        "QUOTE": "Y",
+        "LEAD": null
+      }
+    },
+    "UF_CRM_1636463292": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1636463292",
+      "listLabel": "Port of Loading",
+      "formLabel": "Port of Loading",
+      "filterLabel": "Port of Loading",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1636463308": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1636463308",
+      "listLabel": "Port of Discharge",
+      "formLabel": "Port of Discharge",
+      "filterLabel": "Port of Discharge",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1637156126942": {
+      "type": "money",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1637156126942",
+      "listLabel": "Advance payment",
+      "formLabel": "Advance payment",
+      "filterLabel": "Advance payment",
+      "settings": {
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_61A63AC4CDD3B": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_61A63AC4CDD3B",
+      "listLabel": "#TAG",
+      "formLabel": "#TAG",
+      "filterLabel": "#TAG",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1639057043": {
+      "type": "crm",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1639057043",
+      "listLabel": "Manufacturer",
+      "formLabel": "Manufacturer",
+      "filterLabel": "Manufacturer",
+      "settings": {
+        "COMPANY": "Y"
+      }
+    },
+    "UF_CRM_1639058780": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1639058780",
+      "listLabel": "Shipping Documents",
+      "formLabel": "Shipping Documents",
+      "filterLabel": "Shipping Documents",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 10,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1639060198": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1639060198",
+      "listLabel": "Postscript (PI Additional Details)",
+      "formLabel": "Postscript (PI Additional Details)",
+      "filterLabel": "Postscript (PI Additional Details)",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 10,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1639752232": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1639752232",
+      "listLabel": "Advising Bank",
+      "formLabel": "Advising Bank",
+      "filterLabel": "Advising Bank",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1639752329": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1639752329",
+      "listLabel": "Confirming Bank",
+      "formLabel": "Confirming Bank",
+      "filterLabel": "Confirming Bank",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 5,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1639752729": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1639752729",
+      "listLabel": "Issuing Bank",
+      "formLabel": "Issuing Bank",
+      "filterLabel": "Issuing Bank",
+      "settings": {
+        "DISPLAY": "LIST",
+        "LIST_HEIGHT": 5,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1639839038": {
+      "type": "boolean",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1639839038",
+      "listLabel": "LC",
+      "formLabel": "LC",
+      "filterLabel": "LC",
+      "settings": {
+        "DEFAULT_VALUE": 0,
+        "DISPLAY": "RADIO",
+        "LABEL": [null, null],
+        "LABEL_CHECKBOX": "LC"
+      }
+    },
+    "UF_CRM_1640622460794": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_1640622460794",
+      "listLabel": "Key Instructions to OPS",
+      "formLabel": "Key Instructions to OPS",
+      "filterLabel": "Key Instructions to OPS",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 5,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1642068316": {
+      "type": "money",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1642068316",
+      "listLabel": "REF",
+      "formLabel": "REF",
+      "filterLabel": "REF",
+      "settings": {
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1643978229441": {
+      "type": "money",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1643978229441",
+      "listLabel": "Freight Charges",
+      "formLabel": "Freight Charges",
+      "filterLabel": "Freight Charges",
+      "settings": {
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1643979913": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1643979913",
+      "listLabel": "Shipping Line",
+      "formLabel": "Shipping Line",
+      "filterLabel": "Shipping Line",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1644484828": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1644484828",
+      "listLabel": "Shipment Date",
+      "formLabel": "Shipment Date",
+      "filterLabel": "Shipment Date",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1644921504525": {
+      "type": "double",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1644921504525",
+      "listLabel": "Advance Payment % (0 - 100)",
+      "formLabel": "Advance Payment % (0 - 100)",
+      "filterLabel": "Advance Payment % (0 - 100)",
+      "settings": {
+        "PRECISION": 2,
+        "SIZE": 20,
+        "MIN_VALUE": 0,
+        "MAX_VALUE": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_1653465066827": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1653465066827",
+      "listLabel": "Lost Reason",
+      "formLabel": "Lost Reason",
+      "filterLabel": "Lost Reason",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 5,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1653741701404": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1653741701404",
+      "listLabel": "Sample Status",
+      "formLabel": "Sample Status",
+      "filterLabel": "Sample Status",
+      "settings": {
+        "DISPLAY": "UI",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_62C450109C8AF": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62C450109C8AF",
+      "listLabel": "Type of Buyer",
+      "formLabel": "Type of Buyer",
+      "filterLabel": "Type of Buyer",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 5,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_62C45010C15DB": {
+      "type": "boolean",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62C45010C15DB",
+      "listLabel": "Week Commitment",
+      "formLabel": "Week Commitment",
+      "filterLabel": "Week Commitment",
+      "settings": {
+        "DEFAULT_VALUE": 0,
+        "DISPLAY": "CHECKBOX",
+        "LABEL": [null, null],
+        "LABEL_CHECKBOX": "Week Commitment"
+      }
+    },
+    "UF_CRM_62C45010CD82E": {
+      "type": "date",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62C45010CD82E",
+      "listLabel": "Date of Inquiry (inquiry date / cold contact date)",
+      "formLabel": "Date of Inquiry (inquiry date / cold contact date)",
+      "filterLabel": "Date of Inquiry (inquiry date / cold contact date)",
+      "settings": {
+        "DEFAULT_VALUE": {
+          "TYPE": "NONE",
+          "VALUE": ""
+        }
+      }
+    },
+    "UF_CRM_62C45010DA3CD": {
+      "type": "enumeration",
+      "isRequired": true,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": true,
+      "isDynamic": true,
+      "title": "UF_CRM_62C45010DA3CD",
+      "listLabel": "Product Category",
+      "formLabel": "Product Category",
+      "filterLabel": "Product Category",
+      "settings": {
+        "DISPLAY": "UI",
+        "LIST_HEIGHT": 5,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_62C45010EE220": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62C45010EE220",
+      "listLabel": "Origin accepted",
+      "formLabel": "Origin accepted",
+      "filterLabel": "Origin accepted",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_62C4501105CAF": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_62C4501105CAF",
+      "listLabel": "Estimated Volume",
+      "formLabel": "Estimated Volume",
+      "filterLabel": "Estimated Volume",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_63356ED0C546E": {
+      "type": "crm",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_63356ED0C546E",
+      "listLabel": "Confirming Bank",
+      "formLabel": "Confirming Bank",
+      "filterLabel": "Confirming Bank",
+      "settings": {
+        "COMPANY": "Y",
+        "LEAD": null
+      }
+    },
+    "UF_CRM_63356ED0DB8C7": {
+      "type": "crm",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_63356ED0DB8C7",
+      "listLabel": "Advising Bank",
+      "formLabel": "Advising Bank",
+      "filterLabel": "Advising Bank",
+      "settings": {
+        "COMPANY": "Y",
+        "LEAD": null
+      }
+    },
+    "UF_CRM_63356ED0EC3C4": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_63356ED0EC3C4",
+      "listLabel": "Issuing Bank",
+      "formLabel": "Issuing Bank",
+      "filterLabel": "Issuing Bank",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": null
+      }
+    },
+    "UF_CRM_63356ED108CB2": {
+      "type": "crm",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_63356ED108CB2",
+      "listLabel": "",
+      "formLabel": "PO2Factory-Customer",
+      "filterLabel": "",
+      "settings": {
+        "COMPANY": "Y",
+        "LEAD": null
+      }
+    },
+    "UF_CRM_6380C876D072F": {
+      "type": "address",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6380C876D072F",
+      "listLabel": "Country",
+      "formLabel": "Country",
+      "filterLabel": "Country",
+      "settings": {
+        "SHOW_MAP": "Y"
+      }
+    },
+    "UF_CRM_1721587422": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1721587422",
+      "listLabel": "Urgency Level",
+      "formLabel": "Urgency Level",
+      "filterLabel": "Urgency Level",
+      "settings": {
+        "DISPLAY": "DIALOG",
+        "LIST_HEIGHT": 5,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_6770D17CAC0E3": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6770D17CAC0E3",
+      "listLabel": "Client Size",
+      "formLabel": "Client Size",
+      "filterLabel": "Client Size",
+      "settings": {
+        "DISPLAY": "UI",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_6770D17CC74D8": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6770D17CC74D8",
+      "listLabel": "Manufacturer Payment Terms",
+      "formLabel": "Manufacturer Payment Terms",
+      "filterLabel": "Manufacturer Payment Terms",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_6770D17CD36C1": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_6770D17CD36C1",
+      "listLabel": "Client Payment Term",
+      "formLabel": "Client Payment Term",
+      "filterLabel": "Client Payment Term",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_677FA5CAA514F": {
+      "type": "enumeration",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_677FA5CAA514F",
+      "listLabel": "Lead Rank",
+      "formLabel": "Lead Rank",
+      "filterLabel": "Lead Rank",
+      "settings": {
+        "DISPLAY": "LIST",
+        "LIST_HEIGHT": 1,
+        "CAPTION_NO_VALUE": "",
+        "SHOW_NO_VALUE": "Y"
+      }
+    },
+    "UF_CRM_1742910078": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1742910078",
+      "listLabel": "ETA required by Client",
+      "formLabel": "ETA required by Client",
+      "filterLabel": "ETA required by Client",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1743495741": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1743495741",
+      "listLabel": "Cargo Readiness Date",
+      "formLabel": "Cargo Readiness Date",
+      "filterLabel": "Cargo Readiness Date",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    },
+    "UF_CRM_1744883120": {
+      "type": "string",
+      "isRequired": false,
+      "isReadOnly": false,
+      "isImmutable": false,
+      "isMultiple": false,
+      "isDynamic": true,
+      "title": "UF_CRM_1744883120",
+      "listLabel": "Next Lots' Loading Dates",
+      "formLabel": "Next Lots' Loading Dates",
+      "filterLabel": "Next Lots' Loading Dates",
+      "settings": {
+        "SIZE": 20,
+        "ROWS": 1,
+        "REGEXP": "",
+        "MIN_LENGTH": 0,
+        "MAX_LENGTH": 0,
+        "DEFAULT_VALUE": ""
+      }
+    }
+  }
+}
