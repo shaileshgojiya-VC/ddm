@@ -3,7 +3,11 @@ Model methods for chat messages and sessions.
 """
 
 from sqlalchemy.orm import Session
-from apps.v1.api.chat.models.model import message_chats, message_sessions
+from apps.v1.api.chat.models.model import (
+    message_chats,
+    message_sessions,
+    message_read_receipts,
+)
 from apps.v1.api.auth.models.model import Users
 
 
@@ -195,4 +199,97 @@ class UserMethod:
             db.query(self.model)
             .filter(self.model.uuid == user_uuid)
             .first()
+        )
+
+
+class ReadReceiptMethod:
+    """This class defines methods for message_read_receipts model operations."""
+
+    def __init__(self, model):
+        self.model = model
+
+    def create(
+        self,
+        db: Session,
+        message_id: int,
+        reader_id: int,
+        room_id: str,
+    ):
+        """
+        Create a new read receipt.
+
+        Args:
+            db: Database session
+            message_id: Message ID (FK to message_chats.id)
+            reader_id: Reader user ID (FK to users.id)
+            room_id: Room UUID
+
+        Returns:
+            Created message_read_receipts object
+        """
+        new_receipt = self.model(
+            message_id=message_id,
+            reader_id=reader_id,
+            room_id=room_id,
+        )
+        db.add(new_receipt)
+        db.commit()
+        db.refresh(new_receipt)
+        return new_receipt
+
+    def find_by_message_and_reader(
+        self, db: Session, message_id: int, reader_id: int
+    ):
+        """
+        Find read receipt by message ID and reader ID.
+
+        Args:
+            db: Database session
+            message_id: Message ID
+            reader_id: Reader user ID
+
+        Returns:
+            message_read_receipts object or None
+        """
+        return (
+            db.query(self.model)
+            .filter(
+                self.model.message_id == message_id,
+                self.model.reader_id == reader_id,
+            )
+            .first()
+        )
+
+    def find_by_message_id(self, db: Session, message_id: int):
+        """
+        Find all read receipts for a message.
+
+        Args:
+            db: Database session
+            message_id: Message ID
+
+        Returns:
+            List of message_read_receipts objects
+        """
+        return (
+            db.query(self.model)
+            .filter(self.model.message_id == message_id)
+            .all()
+        )
+
+    def find_by_room_id(self, db: Session, room_id: str):
+        """
+        Find all read receipts for a room.
+
+        Args:
+            db: Database session
+            room_id: Room UUID
+
+        Returns:
+            List of message_read_receipts objects
+        """
+        return (
+            db.query(self.model)
+            .filter(self.model.room_id == room_id)
+            .all()
         )

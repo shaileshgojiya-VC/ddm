@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, Integer, String, Text, JSON
+from sqlalchemy import Column, Integer, String, Text, JSON, DateTime, func
 from core.db import Base
 from core.db.mixins.timestamp_mixin import TimestampMixin
 from core.utils import constant_variable as constant
@@ -66,7 +66,51 @@ class MessageGroups(Base, TimestampMixin):
     admins = Column(JSON, nullable=constant.STATUS_TRUE, default=list, comment="Admins (JSON array)")
 
 
+class MessageReadReceipts(Base, TimestampMixin):
+    __tablename__ = "message_read_receipts"
+
+    id = Column(
+        Integer,
+        primary_key=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
+        comment="Read receipt unique identifier",
+    )
+    uuid = Column(
+        String(36),
+        unique=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
+        nullable=constant.STATUS_FALSE,
+        default=lambda: str(uuid.uuid4()),
+        comment="Read receipt UUID",
+    )
+    message_id = Column(
+        Integer,
+        nullable=constant.STATUS_FALSE,
+        index=constant.STATUS_TRUE,
+        comment="Message ID (FK to message_chats.id)",
+    )
+    reader_id = Column(
+        Integer,
+        nullable=constant.STATUS_FALSE,
+        index=constant.STATUS_TRUE,
+        comment="Reader user ID (FK to users.id)",
+    )
+    room_id = Column(
+        String(36),
+        nullable=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
+        comment="Room identifier (UUID)",
+    )
+    read_at = Column(
+        DateTime,
+        nullable=constant.STATUS_FALSE,
+        default=func.now(),
+        comment="Timestamp when message was read",
+    )
+
+
 # Aliases for backward compatibility and convenience
 message_sessions = MessageSessions
 message_chats = MessageChats
 message_groups = MessageGroups
+message_read_receipts = MessageReadReceipts

@@ -17,7 +17,6 @@ import os
 import sys
 import logging
 from pathlib import Path
-import socketio
 
 # Suppress watchfiles logging BEFORE any other imports
 # This must be done first to prevent infinite logging loops
@@ -41,18 +40,17 @@ setup_logging()
 try:
     # Import the FastAPI application
     from apps.server import app
-    from apps.v1.api.chat.view import sio
-    
-    socket_app = socketio.ASGIApp(sio, other_asgi_app=app)
 
     # ASGI application instance
-    application = socket_app
+    # Note: Socket.IO/WebSocket functionality has been migrated to socket-service/
+    application = app
 
     print(f"🚀 ASGI application initialized successfully")
     print(f"📦 Project: {app.title}")
     print(f"🔢 Version: {app.version}")
     print(f"🔧 Debug Mode: {settings.DEBUG}")
     print(f"🌐 Environment: {settings.ENVIRONMENT}")
+    print(f"📡 Socket Service: Running separately on port 8001 (see socket-service/app.py)")
 
 except ImportError as e:
     print(f"❌ Failed to import FastAPI application: {e}")

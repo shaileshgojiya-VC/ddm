@@ -1,0 +1,210 @@
+asyncapi: '2.6.0'
+info:
+  title: Dana Dairy Socket Service API
+  version: '1.0.0'
+  description: |
+    WebSocket API for real-time chat, group messaging, read receipts, and presence tracking.
+    
+    Authentication is required via JWT token in query parameter or Authorization header.
+
+servers:
+  production:
+    url: wss://socket.dana-dairy.com
+    protocol: socket.io
+    description: Production WebSocket server
+  development:
+    url: ws://localhost:8001
+    protocol: socket.io
+    description: Development WebSocket server
+
+channels:
+  /:
+    description: Main WebSocket connection endpoint
+    subscribe:
+      message:
+        $ref: '#/components/messages/ConnectionResponse'
+    publish:
+      message:
+        $ref: '#/components/messages/ConnectionRequest'
+
+components:
+  messages:
+    ConnectionRequest:
+      name: ConnectionRequest
+      title: Connection Request
+      summary: Client connects with JWT token
+      payload:
+        type: object
+        properties:
+          token:
+            type: string
+            description: JWT authentication token (in query string or header)
+    
+    ConnectionResponse:
+      name: ConnectionResponse
+      title: Connection Response
+      summary: Server confirms connection
+      payload:
+        type: object
+        properties:
+          status:
+            type: string
+            enum: [connected]
+          message:
+            type: string
+          session_id:
+            type: string
+          user_id:
+            type: integer
+    
+    ChatMessage:
+      name: ChatMessage
+      title: Chat Message Event
+      summary: Send a chat message (one-to-one)
+      payload:
+        type: object
+        required: [sender_id, receiver_id]
+        properties:
+          type:
+            type: string
+            enum: [message]
+          sender_id:
+            type: string
+            description: Sender user ID or UUID
+          receiver_id:
+            type: string
+            description: Receiver user ID or UUID
+          room_id:
+            type: string
+            format: uuid
+            description: Optional room UUID
+          content:
+            type: string
+            description: Message content (required for text messages)
+          message_type:
+            type: string
+            enum: [text, image, video, file, audio]
+            default: text
+          attachments:
+            type: array
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                file_name:
+                  type: string
+                file_type:
+                  type: string
+                size:
+                  type: integer
+    
+    GroupMessage:
+      name: GroupMessage
+      title: Group Message Event
+      summary: Send a group message
+      payload:
+        type: object
+        required: [group_id, sender_id]
+        properties:
+          type:
+            type: string
+            enum: [group_message]
+          group_id:
+            type: string
+            description: Group ID or UUID
+          sender_id:
+            type: string
+            description: Sender user ID or UUID
+          room_id:
+            type: string
+            format: uuid
+            description: Optional room UUID
+          content:
+            type: string
+          message_type:
+            type: string
+            enum: [text, image, video, file, audio]
+            default: text
+          attachments:
+            type: array
+            items:
+              type: object
+    
+    ReadReceipt:
+      name: ReadReceipt
+      title: Read Receipt Event
+      summary: Mark a message as read
+      payload:
+        type: object
+        required: [message_id, room_id]
+        properties:
+          type:
+            type: string
+            enum: [read_receipt]
+          message_id:
+            type: string
+            format: uuid
+          room_id:
+            type: string
+            format: uuid
+          reader_id:
+            type: string
+            description: Optional reader user ID (defaults to authenticated user)
+    
+    TypingIndicator:
+      name: TypingIndicator
+      title: Typing Indicator Event
+      summary: Send typing indicator
+      payload:
+        type: object
+        required: [room_id, is_typing]
+        properties:
+          type:
+            type: string
+            enum: [typing]
+          room_id:
+            type: string
+            format: uuid
+          is_typing:
+            type: boolean
+    
+    JoinRoom:
+      name: JoinRoom
+      title: Join Room Event
+      summary: Join a conversation room
+      payload:
+        type: object
+        required: [room_id]
+        properties:
+          type:
+            type: string
+            enum: [join_room]
+          room_id:
+            type: string
+            format: uuid
+    
+    LeaveRoom:
+      name: LeaveRoom
+      title: Leave Room Event
+      summary: Leave a conversation room
+      payload:
+        type: object
+        required: [room_id]
+        properties:
+          type:
+            type: string
+            enum: [leave_room]
+          room_id:
+            type: string
+            format: uuid
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token authentication
+
+defaultContentType: application/json
+
