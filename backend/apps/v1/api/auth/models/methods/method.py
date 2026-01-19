@@ -541,3 +541,95 @@ class UserAuthMethod:
                 "active_deals": 0,
                 "deals_won": 0,
             }
+
+    async def get_profile_by_user_id(self, db: AsyncSession, user_id: int):
+        """This function returns user profile by ID with role relationship loaded (asynchronous)
+        
+        Args:
+            db: Database session
+            user_id: User ID
+            
+        Returns:
+            User object with role relationship loaded, or None if not found
+        """
+        stmt = (
+            select(self.model)
+            .options(selectinload(self.model.role))
+            .filter(self.model.id == user_id)
+        )
+        result = await db.execute(stmt)
+        return result.scalar_one_or_none()
+
+    async def update_profile_by_user_id(
+        self, db: AsyncSession, user_id: int, update_data: dict
+    ):
+        """This function updates user profile data by ID with role relationship loaded (asynchronous)
+        
+        Only allows updating profile fields: name, phone_number, location, profile_image_url.
+        Does not allow updating: role_id, status, email, password, or other sensitive fields.
+        
+        Args:
+            db: Database session
+            user_id: User ID
+            update_data: Dictionary with fields to update (only allowed fields)
+            
+        Returns:
+            Updated user object with role relationship loaded, or None if not found
+        """
+        try:
+            stmt = select(self.model).filter(self.model.id == user_id)
+            result = await db.execute(stmt)
+            user = result.scalar_one_or_none()
+
+            if not user:
+                return None
+
+            # Update only provided fields that are allowed
+            allowed_fields = ["name", "phone_number", "location", "profile_image_url"]
+            for key, value in update_data.items():
+                if key in allowed_fields and hasattr(user, key):
+                    setattr(user, key, value)
+
+            await db.flush()
+
+            # Reload user with role relationship
+            stmt = (
+                select(self.model)
+                .options(selectinload(self.model.role))
+                .filter(self.model.id == user.id)
+            )
+            result = await db.execute(stmt)
+            updated_user = result.scalar_one_or_none()
+
+            await db.commit()
+            return updated_user
+        except Exception:
+            await db.rollback()
+            raise
+
+    @staticmethod
+    def calculate_profile_completeness(user) -> int:
+        """Calculate profile completeness percentage.
+        
+        Args:
+            user: User object
+            
+        Returns:
+            Integer percentage (0-100) representing profile completeness
+        """
+        fields_to_check = {
+            "name": user.name,
+            "email": user.email,
+            "phone_number": user.phone_number,
+            "location": user.location,
+            "profile_image_url": user.profile_image_url,
+        }
+        
+        completed_fields = sum(1 for value in fields_to_check.values() if value)
+        total_fields = len(fields_to_check)
+        
+        if total_fields == 0:
+            return 0
+        
+        completeness = int((completed_fields / total_fields) * 100)
+        return completeness

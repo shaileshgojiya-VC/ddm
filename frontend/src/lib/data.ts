@@ -14,7 +14,13 @@ import type {
   InquiriesSearchParams,
 } from "@/types/inquiry";
 import type { ProductCategoriesResponse } from "@/types/product-category";
-import type { User, UsersResponse, UsersSearchParams } from "@/types/user";
+import type {
+  Profile,
+  UpdateProfileRequest,
+  User,
+  UsersResponse,
+  UsersSearchParams,
+} from "@/types/user";
 import serverFetcher from "@/utils/fetcher/server";
 
 /**
@@ -255,4 +261,36 @@ export async function getInquiries(searchParams: InquiriesSearchParams) {
     pagination: response?.pagination,
     dataCount: response?.data?.data_count,
   };
+}
+
+/**
+ * Fetches current user's profile from the server
+ * @returns Profile data or null if not found
+ */
+export async function getProfile(): Promise<Profile | null> {
+  const response = await serverFetcher<Profile>({
+    request: "auth/profile",
+    method: "GET",
+    token: true,
+  });
+
+  return response.data ?? null;
+}
+
+/**
+ * Updates current user's profile
+ * @param data - Profile update data (name, phone_number, location)
+ * @returns Updated profile data
+ */
+export async function updateProfile(
+  data: UpdateProfileRequest
+): Promise<Profile | null> {
+  const response = await serverFetcher<Profile>({
+    request: "auth/profile",
+    method: "PUT",
+    payload: data as Record<string, unknown>,
+    token: true,
+  });
+
+  return response.data ?? null;
 }

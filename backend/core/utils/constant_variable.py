@@ -43,3 +43,13 @@ NEW_USER_SUBJECT = "Welcome to Admin Portal - Your Account Details"
 USER_EMAIL_MAX_LENGTH = 255
 USER_USERNAME_MAX_LENGTH = 100
 USER_PASSWORD_MIN_LENGTH = 8
+
+# Profile attributes
+PROFILE_NAME_MAX_LENGTH = 255
+PROFILE_PHONE_MIN_LENGTH = 10
+PROFILE_PHONE_MAX_LENGTH = 20
+PROFILE_LOCATION_MAX_LENGTH = 255
+PROFILE_IMAGE_MAX_SIZE = 10 * 1024 * 1024  # 10MB in bytes
+PROFILE_IMAGE_ALLOWED_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif", ".webp"]
+PROFILE_FIELDS_ALLOWED_FOR_UPDATE = ["name", "phone_number", "location", "profile_image_url"]
+PROFILE_FIELDS_RESTRICTED = ["role_id", "status", "email", "hashed_password", "parent_user_id", "created_by", "bitrix_id"]

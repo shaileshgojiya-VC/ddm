@@ -75,10 +75,16 @@ class Users(Base, TimestampMixin):
     bitrix_id = Column(Integer, nullable=constant.STATUS_FALSE)
 
     parent_user_id = Column(
-        Integer, ForeignKey("users.id"), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+        Integer,
+        ForeignKey("users.id"),
+        nullable=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
     )
     created_by = Column(
-        Integer, ForeignKey("users.id"), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+        Integer,
+        ForeignKey("users.id"),
+        nullable=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
     )
 
     name = Column(String(255), nullable=constant.STATUS_FALSE)
@@ -102,7 +108,10 @@ class Users(Base, TimestampMixin):
     joined_at = Column(DateTime, nullable=constant.STATUS_FALSE)
 
     role_id = Column(
-        Integer, ForeignKey("roles.id"), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+        Integer,
+        ForeignKey("roles.id"),
+        nullable=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
     )
 
     status = Column(
@@ -111,8 +120,33 @@ class Users(Base, TimestampMixin):
         default=Status.ACTIVE,
     )
 
-    reset_token = Column(String(255), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE)
+    reset_token = Column(
+        String(255), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+    )
     reset_token_expires_at = Column(DateTime, nullable=constant.STATUS_TRUE)
+
+    # Email verification fields
+    pending_email = Column(
+        String(255),
+        nullable=constant.STATUS_TRUE,
+        comment="New email awaiting verification",
+    )
+    email_verified_at = Column(
+        DateTime,
+        nullable=constant.STATUS_TRUE,
+        comment="Timestamp when email was verified",
+    )
+    pending_email_token = Column(
+        String(255),
+        nullable=constant.STATUS_TRUE,
+        index=constant.STATUS_TRUE,
+        comment="Token for verifying new email",
+    )
+    pending_email_token_expires_at = Column(
+        DateTime,
+        nullable=constant.STATUS_TRUE,
+        comment="Expiry time for email verification token",
+    )
 
     role = relationship("Roles", back_populates="users")
     parent_user = relationship(
@@ -189,7 +223,9 @@ class Permission(Base):
 
     id = Column(Integer, primary_key=constant.STATUS_TRUE, index=constant.STATUS_TRUE)
 
-    name = Column(String(100), nullable=constant.STATUS_FALSE, unique=constant.STATUS_TRUE)
+    name = Column(
+        String(100), nullable=constant.STATUS_FALSE, unique=constant.STATUS_TRUE
+    )
     code = Column(
         String(100),
         nullable=constant.STATUS_FALSE,
@@ -198,7 +234,12 @@ class Permission(Base):
     )
 
     created_at = Column(DateTime, default=func.now(), nullable=constant.STATUS_FALSE)
-    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=constant.STATUS_FALSE)
+    updated_at = Column(
+        DateTime,
+        default=func.now(),
+        onupdate=func.now(),
+        nullable=constant.STATUS_FALSE,
+    )
 
     role_permissions = relationship("RolePermission", back_populates="permission")
 
@@ -228,7 +269,12 @@ class RolePermission(Base):
     )
 
     created_at = Column(DateTime, default=func.now(), nullable=constant.STATUS_FALSE)
-    updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=constant.STATUS_FALSE)
+    updated_at = Column(
+        DateTime,
+        default=func.now(),
+        onupdate=func.now(),
+        nullable=constant.STATUS_FALSE,
+    )
 
     role = relationship("Roles", back_populates="role_permissions")
     module = relationship("Modules", back_populates="role_permissions")
@@ -238,7 +284,9 @@ class RolePermission(Base):
 class ActivityLog(Base, TimestampMixin):
     __tablename__ = "activity_logs"
 
-    id = Column(BigInteger, primary_key=constant.STATUS_TRUE, index=constant.STATUS_TRUE)
+    id = Column(
+        BigInteger, primary_key=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+    )
 
     user_id = Column(
         Integer,
@@ -259,7 +307,9 @@ class ActivityLog(Base, TimestampMixin):
         index=constant.STATUS_TRUE,
     )
 
-    entity_id = Column(String(100), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE)
+    entity_id = Column(
+        String(100), nullable=constant.STATUS_TRUE, index=constant.STATUS_TRUE
+    )
     description = Column(Text, nullable=constant.STATUS_TRUE)
 
     activity_metadata = Column(JSON, nullable=constant.STATUS_TRUE)

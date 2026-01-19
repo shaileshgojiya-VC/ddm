@@ -56,7 +56,7 @@ async def send_email(to: str, subject: str, body: str, html: bool = False):
 
     message = MIMEMultipart("alternative")
     message["Subject"] = subject
-    message["From"] = mail_config["user"]
+    message["From"] = mail_config["from_email"]
     message["To"] = to
 
     if html:

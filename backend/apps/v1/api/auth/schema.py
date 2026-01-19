@@ -118,3 +118,59 @@ class RefreshTokenRequest(BaseModel):
     """Request schema for refresh token."""
 
     refresh_token: str
+
+
+class UpdateEmailInitiateRequest(BaseModel):
+    """Request schema for initiating email update."""
+
+    new_email: EmailStr
+    current_password: str
+
+
+class UpdateEmailInitiateResponse(BaseModel):
+    """Response after initiating email update."""
+
+    message: str
+    verification_required: bool
+    pending_email: str
+
+
+class VerifyNewEmailRequest(BaseModel):
+    """Request schema for verifying new email via token."""
+
+    email_token: str
+
+
+class VerifyNewEmailResponse(BaseModel):
+    """Response after verifying new email."""
+
+    message: str
+    confirmation_link_sent: bool
+    confirmation_email: str
+
+
+class ConfirmEmailUpdateRequest(BaseModel):
+    """Request schema for confirming email update from old email."""
+
+    confirmation_token: str
+    current_password: str
+
+
+class ConfirmEmailUpdateResponse(BaseModel):
+    """Response after confirming email update."""
+
+    message: str
+    new_email: str
+    updated_at: str
+
+
+class UpdateProfileRequest(BaseModel):
+    """Request schema for updating user profile.
+    
+    Only allows updating basic profile fields: name, phone_number, location.
+    Does not allow: role_id, status, email, password, or other sensitive fields.
+    """
+
+    name: Optional[str] = None
+    phone_number: Optional[str] = None
+    location: Optional[str] = None

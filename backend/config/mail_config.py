@@ -14,4 +14,5 @@ def get_mail_config():
         "password": settings.SMTP_PASSWORD,
         "use_tls": settings.SMTP_USE_TLS,
         "email_username": settings.EMAIL_USERNAME,
+        "from_email": settings.FROM_EMAIL,
     }

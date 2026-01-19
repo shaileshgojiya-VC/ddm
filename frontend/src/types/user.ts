@@ -52,3 +52,28 @@ export interface UsersSearchParams {
   page?: string;
   limit?: string;
 }
+
+/**
+ * Profile type matching backend ProfileSerializer
+ */
+export interface Profile {
+  id: string;
+  name: string;
+  email: string;
+  phone_number: string | null;
+  location: string | null;
+  profile_image_url: string | null;
+  profile_completeness: number | null;
+  joined_at: string;
+  created_at: string;
+  updated_at: string;
+}
+
+/**
+ * Update profile request payload
+ */
+export interface UpdateProfileRequest {
+  name?: string;
+  phone_number?: string | null;
+  location?: string | null;
+}

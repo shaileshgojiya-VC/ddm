@@ -64,3 +64,9 @@ class MessageGroups(Base, TimestampMixin):
     created_by = Column(Integer, nullable=constant.STATUS_TRUE, comment="Created by")
     members = Column(JSON, nullable=constant.STATUS_TRUE, default=list, comment="Members (JSON array)")
     admins = Column(JSON, nullable=constant.STATUS_TRUE, default=list, comment="Admins (JSON array)")
+
+
+# Aliases for backward compatibility and convenience
+message_sessions = MessageSessions
+message_chats = MessageChats
+message_groups = MessageGroups

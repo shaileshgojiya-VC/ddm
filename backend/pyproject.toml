@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "DanaDairyBackend"
+name = "backend"
 version = "0.1.0"
 description = "Dana Dairy Backend API"
 authors = ["Dana Dairy <info@dana-dairy.com>"]

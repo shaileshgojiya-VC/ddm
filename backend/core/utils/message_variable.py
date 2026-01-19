@@ -82,3 +82,14 @@ PRODUCT_RETRIEVED_SUCCESS = "Product retrieved successfully"
 # Filter Messages
 FILTERS_RETRIEVED_SUCCESS = "Filters retrieved successfully"
 INVALID_MODULE = "Invalid module name"
+
+# Profile Messages
+PROFILE_RETRIEVED_SUCCESS = "Profile retrieved successfully"
+PROFILE_UPDATED_SUCCESS = "Profile updated successfully"
+PROFILE_IMAGE_UPLOADED_SUCCESS = "Profile image uploaded successfully"
+PROFILE_UPDATE_NO_FIELDS = "No fields provided for update"
+PROFILE_UPDATE_RESTRICTED_FIELD = "Field is not allowed to be updated via profile endpoint"
+PROFILE_PHONE_INVALID_FORMAT = "Invalid phone number format. Phone number must be 10-20 digits"
+PROFILE_IMAGE_INVALID_FORMAT = "Invalid image format. Allowed formats: JPG, JPEG, PNG, GIF, WEBP"
+PROFILE_IMAGE_SIZE_EXCEEDED = "Image size exceeds maximum allowed size of 10MB"
+PROFILE_IMAGE_UPLOAD_FAILED = "Failed to upload profile image"

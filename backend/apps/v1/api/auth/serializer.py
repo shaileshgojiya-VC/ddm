@@ -328,3 +328,64 @@ class UserWebhookSerializer(Schema):
     profile_image_url = fields.Raw(data_key="profile_image_url", attribute="profile_image_url", allow_none=True)
     joined_at = fields.Raw(data_key="joined_at", attribute="joined_at", allow_none=True)
     Position = fields.Raw(data_key="Position", attribute="Position", allow_none=True)  # WORK_POSITION from Bitrix
+
+
+class ProfileSerializer(Schema):
+    """Profile serializer for GET profile endpoint.
+    
+    Returns user profile data excluding sensitive fields.
+    """
+
+    id = fields.Str(data_key="id", required=True)
+    name = fields.Str(data_key="name", required=True)
+    email = fields.Email(data_key="email", required=True)
+    phone_number = fields.Str(
+        data_key="phone_number",
+        required=False,
+        allow_none=True,
+    )
+    location = fields.Str(
+        data_key="location",
+        required=False,
+        allow_none=True,
+    )
+    profile_image_url = fields.Str(
+        data_key="profile_image_url",
+        required=False,
+        allow_none=True,
+    )
+    profile_completeness = fields.Int(
+        data_key="profile_completeness",
+        required=False,
+        allow_none=True,
+    )
+    joined_at = fields.DateTime(data_key="joined_at", required=True)
+    created_at = fields.DateTime(data_key="created_at", required=True)
+    updated_at = fields.DateTime(data_key="updated_at", required=True)
+
+
+class ProfileUpdateSerializer(Schema):
+    """Profile update serializer for PUT profile endpoint.
+    
+    Returns updated profile data after successful update.
+    """
+
+    id = fields.Str(data_key="id", required=True)
+    name = fields.Str(data_key="name", required=True)
+    email = fields.Email(data_key="email", required=True)
+    phone_number = fields.Str(
+        data_key="phone_number",
+        required=False,
+        allow_none=True,
+    )
+    location = fields.Str(
+        data_key="location",
+        required=False,
+        allow_none=True,
+    )
+    profile_image_url = fields.Str(
+        data_key="profile_image_url",
+        required=False,
+        allow_none=True,
+    )
+    updated_at = fields.DateTime(data_key="updated_at", required=True)

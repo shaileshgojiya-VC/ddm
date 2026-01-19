@@ -66,7 +66,7 @@ class Settings(BaseSettings):
     SMTP_PASSWORD: str
     SMTP_USE_TLS: bool = True
     EMAIL_USERNAME: str | None = None
-    # DEFAULT_FROM_EMAIL: str
+    FROM_EMAIL: str  # Verified sender email address (required for AWS SES)
 
     # Session
     SESSION_SECRET_KEY: str = ""
